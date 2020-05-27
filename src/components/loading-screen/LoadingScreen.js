@@ -5,15 +5,13 @@ import "./LoadingScreen.css";
 
 export default function LoadingScreen() {
     return (
-        <div style = {{height: "100%", width: "100%", display: "flex", alignItems: "center"}}>
-            <Grid container>
+            <Grid container style = {{height: "100vh", width: "100vw", display: "flex", alignItems: "center"}}>
                 <Grid item xs/>
-                <Grid item xs = {5}>
-                <img src = "/logosvg.svg" style = {{height: "auto"}}/>   
+                <Grid id="loadingImageContainer" item xs = {5} md={1}>
+                <img alt="Loading..." src = "/logosvg.svg" style = {{height: "auto"}}/>   
                 
                 </Grid>
                 <Grid item xs/>
             </Grid>
-        </div>
     )
 }
