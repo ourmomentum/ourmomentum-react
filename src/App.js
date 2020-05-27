@@ -4,9 +4,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>MOMENTUM FRONTEND</h1>
-    </div>
+    <div>MOMENTUM FRONTEND</div>
   );
 }
 
