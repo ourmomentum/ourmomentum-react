@@ -1,0 +1,26 @@
+{/*I have no clue man*/  }
+
+h1 {
+    color: green;
+  }
+
+
+{/*need hashtag to enable tag id*/}
+{/*padding is basically buubble around the tag + !!! notes in the brackets seem to mess up the code somehow*/}
+#sentenceOne {
+    color: blue;
+    text-align: center;
+    background-color: lightblue;
+    padding: 50px; 
+    font-family: "Comic Sans MS";
+    
+    
+    
+}
+
+{/*multiple tags will fall under class id use period*/}
+.class{
+    color: white;
+    background-color: lightpink;
+    padding: 15px;
+}
