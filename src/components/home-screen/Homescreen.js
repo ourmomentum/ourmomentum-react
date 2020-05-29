@@ -7,7 +7,7 @@ export default function HomeScreen() {
     return (
         <div>
             <h1>  {/* this is a comment + please delete my bs whenever */}
-                hey efe and muh and gabbee and sindjuha and rahul - susan playing around here
+                hey efe and muh and gabbee and sindjuha and rahul - <b>Legend</b> susan playing around here
             </h1> {/*this is a header */}
 
 
