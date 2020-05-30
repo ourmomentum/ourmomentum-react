@@ -1,7 +1,6 @@
 import React from 'react'
 import './Homescreen.css'
 import {
-  Container,
   AppBar,
   Toolbar,
   Button,
@@ -10,44 +9,44 @@ import {
 
 export default function HomeScreen() {
     return (
-      <>
-      <AppBar position="static" color="transperant" class="navbar">
-        <Toolbar>
-        <img src="logosvg.svg" height="75px" />
-        <div class="navbar_links">
-          <Button color="inherit">Home</Button>
-          <Button color="inherit">Issues</Button>
-          <Button color="inherit">Blog</Button>
-          <Button color="inherit">Our Team</Button>
-          <Button color="inherit">Contact Us</Button>
-        </div>
-        </Toolbar>
-        </AppBar>
+        <React.Fragment>
+            <AppBar position="static" color="transperant">
+                <Toolbar>
+                <img src="logosvg.svg" height="75px" />
+                <div className="navbar_links">
+                <Button color="inherit">Home</Button>
+                <Button color="inherit">Issues</Button>
+                <Button color="inherit">Blog</Button>
+                <Button color="inherit">Our Team</Button>
+                <Button color="inherit">Contact Us</Button>
+                </div>
+                </Toolbar>
+                </AppBar>
 
-        <center>
-          <img src="homepage_banner.png" class="banner"/>
-        </center>
+                <Grid container style={{marginTop: "1em"}}>
+                    <Grid xs />
+                    <Grid item xs={8} className="centeredContainer">
+                        <img src="homepage_banner.png" className="banner"/>
+                    </Grid>
+                    <Grid xs />
+                </Grid>
 
-        {/* style tests for "euerka" heading
-        <Container>
-          <center>
-            <div class="edition0">
-              EUREKA
-            </div>
-            <div class="edition">
-              EUREKA
-            </div>
+                <Grid container>
+                    <Grid item xs={12} className="edition0 centeredContainer">
+                    EUREKA
+                    </Grid>
+                    <Grid item xs={12} className="edition centeredContainer">
+                    EUREKA
+                    </Grid>
 
-            <div class="edition2">
-              EUREKA
-            </div>
-            <div class="edition3">
-              EUREKA
-            </div>
-          </center>
-        </Container>
-          */}
-        </>
+                    <Grid item xs={12} className="edition2 centeredContainer">
+                    EUREKA
+                    </Grid>
+                    <Grid item xs={12} className="edition3 centeredContainer">
+                    EUREKA
+                    </Grid>
+                </Grid>
+        </React.Fragment>
 
     )
 }

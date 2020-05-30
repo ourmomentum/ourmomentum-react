@@ -28,22 +28,16 @@
 
 .navbar Button{
   font-size: 100%;
-  /* display: flex; */
 }
 
 .navbar_links{
-  /* display: flex;
-  flex: 1; */
-  float: right;
-}
-
-.navbar{
-  box-shadow: 0 2px 2px 2px rgba(0,0,0,.2);
+  justify-self: right;
 }
 
 
 .banner{
-  margin-top: 50px;
   align-self: center;
   display: flex;
+  height: auto;
+  width: 100%;
 }
