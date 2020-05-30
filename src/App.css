@@ -5,3 +5,53 @@ body{
 #root{
   min-height: 100%;
 }
+
+.m-deepblue{
+  color: #081F25;
+}
+
+.m-medblue{
+  color: #51AF9D;
+}
+
+.m-lightblue{
+  color: #7CCEB7;
+}
+
+.m-yellow{
+  color: #FCD55E;
+}
+
+.m-orange{
+  color: #F5A711;
+}
+
+.m-red{
+  color: #EA421B;
+}
+
+
+/* FOR BACKGROUND */
+.m-deepblue-bg{
+  background-color: #081F25;
+}
+
+.m-medblue-bg{
+  background-color: #51AF9D;
+}
+
+.m-lightblue-bg{
+  background-color: #7CCEB7;
+}
+
+.m-yellow-bg{
+  background-color: #FCD55E;
+}
+
+.m-orange-bg{
+  background-color: #F5A711;
+}
+
+.m-red-bg{
+  background-color: #EA421B;
+}
