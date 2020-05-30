@@ -21,6 +21,17 @@ h1 {
 {/*multiple tags will fall under class id use period*/}
 .class{
     color: white;
-    background-color: lightpink;
+    background-color:#ff944d;
     padding: 15px;
 }
+
+@keyframes pulse {
+    0%   {opacity: 20%;}
+    50%  {opacity: 100%;}
+    100% {opacity: 20%;}
+}
+
+{/*#testingImage {
+    animation: pulse 2.5s infinite;
+}
+*/}

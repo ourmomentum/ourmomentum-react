@@ -1,7 +1,8 @@
 import React from 'react'
 import {Grid} from '@material-ui/core';
 import "./Homescreen.css";
-{/*stab me*/}
+
+
 
 export default function HomeScreen() {
     return (
@@ -59,6 +60,21 @@ export default function HomeScreen() {
                         </dd>
                     </dl>
                 </p>
+
+
+                <Grid class = "class" container style = {{height: "40vh", width: "100vw", display: "flex", alignItems: "center"}}>
+                    <Grid item xs/>
+                        <figure>
+                            <Grid id="testingImage" item xs = {15} md={1}>
+                            <img alt="Testing Image" title-="I guess some logo" src = "/logo192.png" style = {{height: "auto"}}/>   
+                            </Grid>
+                            <br />
+                            <figcaption>
+                            This is the logo fo something.
+                            </figcaption>
+                        </figure>
+                    <Grid item xs/>
+                </Grid>
 
            
 
