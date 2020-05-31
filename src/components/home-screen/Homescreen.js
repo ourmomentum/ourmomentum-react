@@ -6,6 +6,16 @@ import {
   Button,
   Grid
 } from '@material-ui/core'
+import SusansPlayground from '../susans-playground/SusansPlayground';
+
+
+function scuzan() {
+    return (
+      <div>
+        {<SusansPlayground />}
+      </div>
+    );
+  }
 
 export default function HomeScreen() {
     return (
@@ -19,6 +29,10 @@ export default function HomeScreen() {
                 <Button color="inherit">Blog</Button>
                 <Button color="inherit">Our Team</Button>
                 <Button color="inherit">Contact Us</Button>
+                <Button color="inherit"  onClick={() => scuzan()}>Susan's Playground</Button>
+                <form>
+                    <input type="Button" onclick="scuzan()" value="Click" />
+                </form>
                 </div>
                 </Toolbar>
                 </AppBar>
@@ -50,3 +64,5 @@ export default function HomeScreen() {
 
     )
 }
+
+
