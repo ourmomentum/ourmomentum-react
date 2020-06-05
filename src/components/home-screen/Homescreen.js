@@ -6,16 +6,14 @@ import {
   Button,
   Grid
 } from '@material-ui/core'
-import SusansPlayground from '../susans-playground/SusansPlayground';
+import SusansPlayground from '../susans-playground/SusansPlayground.js';
+import ReactDOM from 'react-dom'
+import { Link } from "react-router-dom";
 
 
-function scuzan() {
-    return (
-      <div>
-        {<SusansPlayground />}
-      </div>
-    );
-  }
+
+
+
 
 export default function HomeScreen() {
     return (
@@ -29,14 +27,14 @@ export default function HomeScreen() {
                 <Button color="inherit">Blog</Button>
                 <Button color="inherit">Our Team</Button>
                 <Button color="inherit">Contact Us</Button>
-                <Button color="inherit"  onClick={() => scuzan()}>Susan's Playground</Button>
-                <form>
-                    <input type="Button" onclick="scuzan()" value="Click" />
-                </form>
+                <Link to = "/susans-playground">
+                    <Button color="inherit">Susan's Playground</Button>
+                </Link>
                 </div>
                 </Toolbar>
                 </AppBar>
 
+              
                 <Grid container style={{marginTop: "1em"}}>
                     <Grid xs />
                     <Grid item xs={8} className="centeredContainer">
