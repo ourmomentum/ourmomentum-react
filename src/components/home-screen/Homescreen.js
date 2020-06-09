@@ -7,7 +7,7 @@ import {
   Grid
 } from '@material-ui/core'
 import SusansPlayground from '../susans-playground/SusansPlayground';
-
+import MomentumNavBar from '../nav-bar/MomentumNavBar.js'
 
 function scuzan() {
     return (
@@ -64,5 +64,3 @@ export default function HomeScreen() {
 
     )
 }
-
-
