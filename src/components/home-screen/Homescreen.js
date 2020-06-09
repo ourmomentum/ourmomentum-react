@@ -12,11 +12,8 @@ import { Link } from "react-router-dom";
 import MomentumNavBar from '../nav-bar/MomentumNavBar.js'
 
 
-
-
-
-
 export default function HomeScreen() {
+
     return (
         <React.Fragment>
             <AppBar position="static" color="transperant">

@@ -9,9 +9,9 @@ function App() {
 
   return (
     <BrowserRouter>
-      
+
       <Route path = "/susans-playground" component = {SusansPlayground}>
-         
+
       </Route>
       <Route exact path = "/" component = {Landing}>
 
