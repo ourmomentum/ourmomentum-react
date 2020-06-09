@@ -35,7 +35,6 @@ export default function HomeScreen() {
                 </Toolbar>
                 </AppBar>
 
-
                 <Grid container style={{marginTop: "1em"}}>
                     <Grid xs />
                     <Grid item xs={8} className="centeredContainer">
