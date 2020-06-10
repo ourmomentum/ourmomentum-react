@@ -32,7 +32,7 @@ export default function HomeScreen() {
                 </Toolbar>
                 </AppBar>
 
-                <Grid container style={{marginTop: "1em"}}>
+                <Grid container style={{marginTop: "1em"}} className="bannerGrid">
                     <Grid xs />
                     <Grid item xs={8} className="centeredContainer">
                         <img src="homepage_banner.png" className="banner"/>

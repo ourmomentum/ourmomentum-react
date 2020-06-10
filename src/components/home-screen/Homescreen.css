@@ -1,6 +1,11 @@
 
   /* background: radial-gradient(#d9d9d9, white); */
 
+.edition, .edition0, .edition2, .edition3{
+  visibility: hidden !important;
+  display: none !important;
+}
+
   .edition0{
   font-size: 40px;
   font-weight: 800;
@@ -34,4 +39,11 @@
   display: flex;
   height: auto;
   width: 100%;
+}
+
+
+.bannerGrid{
+  background-color: #f7f7f7;
+  padding: 50px;
+  
 }
