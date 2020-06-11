@@ -1,16 +1,11 @@
 import React from 'react'
-import { AppBar, Toolbar,  Typography } from '@material-ui/core'
+import MomentumToolbar from '../../toolbar/MomentumToolbar'
 
 export default function HomeScreen() {
     return (
-        <div>
-            <AppBar style={{background: "#FFFFFF"}}>
-                <Toolbar style={{color: "black"}}>
-                    <Typography>
-                        Stuff will hopefully go here
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-        </div>
+        <React.Fragment>
+            <MomentumToolbar />
+            Home Screen!
+        </React.Fragment>
     )
 }

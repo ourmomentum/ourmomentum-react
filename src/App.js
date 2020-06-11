@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
 import './App.css';
 import LoadingScreen from './components/loading-screen/LoadingScreen';
-import HomeScreen from './components/home-screen/Homescreen';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Landing from './components/home-screen/Landing';
+import MomentumToolbar from './toolbar/MomentumToolbar';
 
 function App() {
-  const [loading, setLoading] = useState(true);
-  setTimeout(setLoading.bind(this, false), 3000);
 
   return (
-    <div>
-      {(loading) ? <LoadingScreen /> : <HomeScreen />}
-    </div>
+    <BrowserRouter>
+      <Route exact path = '/' component={Landing} />
+    </BrowserRouter>
   );
 }
 

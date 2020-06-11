@@ -2,6 +2,11 @@ body{
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: #AAAAAA;
+}
+
 #root{
   min-height: 100%;
 }
