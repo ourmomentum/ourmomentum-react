@@ -1,12 +1,11 @@
 import React from 'react'
 import posts from './testposts'
-import testposts from './testposts';
 import { Grid, Typography } from '@material-ui/core'
 import BlogPreview from '../../blog-preview/BlogPreview'
 import { useTheme } from '@material-ui/core/styles';
 
 
-export default function FeaturesArticles() {
+export default function FeaturedArticles() {
     const theme = useTheme();
 
     return (
@@ -17,7 +16,7 @@ export default function FeaturesArticles() {
                 </Grid>
             </Grid>
                 <Grid container style={{width: '100%', marginTop: '2.5vh'}}>
-                    {testposts.map((post, i) => <BlogPreview margin = {((!theme.breakpoints.down('sm') ? 1 : (2 % 2) ) + 2 + 'em')} title={post.title}  content={post.content} />)}
+                    <BlogPreview margin = {((!theme.breakpoints.down('sm') ? 1 : (2 % 2) ) + 2 + 'em')} posts={posts} />
                 </Grid>
         </div>
     )

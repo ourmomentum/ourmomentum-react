@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import MomentumToolbar from '../../toolbar/MomentumToolbar'
 import FullScreenBanner from './FullScreenBanner';
-import FeaturesArticles from './FeaturesArticles';
+import FeaturedArticles from './FeaturedArticles';
+import MomentumFooter from '../footer/MomentumFooter';
 
 export default function HomeScreen() {
     const [bannerHeight, setBannerHeight] = useState(0);
@@ -20,9 +21,8 @@ export default function HomeScreen() {
             <MomentumToolbar  />
             </div>
                 <FullScreenBanner height={'calc(100vh - ' + bannerHeight + 'px)'} />
-            <div>
-                <FeaturesArticles/>
-            </div>
+                <FeaturedArticles/>
+                <MomentumFooter />
         </React.Fragment>
     )
 }
