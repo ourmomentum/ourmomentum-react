@@ -19,7 +19,7 @@ export default function HomeScreen() {
             <div ref={toolbarRef}>
             <MomentumToolbar  />
             </div>
-            <FullScreenBanner height={'calc(100vh - ' + bannerHeight + 'px)'} />
+                <FullScreenBanner height={'calc(100vh - ' + bannerHeight + 'px)'} />
             <div>
                 <FeaturesArticles/>
             </div>

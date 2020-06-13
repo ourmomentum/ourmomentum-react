@@ -9,12 +9,9 @@ export default function FullScreenBanner(props) {
     const scrollDown = () => {
         if (bannerRef) {
             window.scrollBy({
-                top: bannerRef.current.clientHeight,
+                top: bannerRef.current.clientHeight - window.scrollY,
                 behavior: 'smooth'
             });
-            console.log("Scrolled Down!")
-        } else {
-            console.log("No ref")
         }
     }
 
