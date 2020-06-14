@@ -21,7 +21,7 @@ export default [
 
     {
         "title": "Susan is confused",
-        "content": "Why are there two 'issue one: eureka banners? Is this onyl my problem?? Wait jk I fixed it on my side i think -- there were two  <Route exact path = "/" component = {Landing}> in App.js. i deleted the second one. Also will these be linked to any issues? like are these boxes going to be buttons?? can I have my temp playground back :(. It can be a temporary button. Wait... I can do localhost3000/susanspalygrpudn right? hold on let me try. Also i am amazed by how this looks"
+        "content": "Why are there two 'issue one: eureka banners? Is this onyl my problem?? Wait jk I fixed it on my side i think -- there were two  <Route exact path = / component = {Landing}> in App.js. i deleted the second one. Also will these be linked to any issues? like are these boxes going to be buttons?? can I have my temp playground back :(. It can be a temporary button. Wait... I can do localhost3000/susanspalygrpudn right? hold on let me try. Also i am amazed by how this looks"
     }
 
 ]
