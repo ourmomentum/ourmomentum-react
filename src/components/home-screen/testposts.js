@@ -17,6 +17,11 @@ export default [
     {
         "title": "This Is Sort Of Getting Tiring",
         "content": "How about this, this is the last example I'll write and we'll call it a day. The last thing we're going to do is writing a custom constructor, it'll be a little bit trickier, but if you're interested, I've written a basic one here. \nYour constructor will be called with two arguments. A const variable. It can contain any type of value. Let's say, one of those arguments is a reference to some type. There's two ways you can deal with that. You can call this() with the type of value you want or you can call this.get() . Let's see what they look like."
+    },
+
+    {
+        "title": "Susan is confused",
+        "content": "Why are there two 'issue one: eureka banners? Is this onyl my problem?? Wait jk I fixed it on my side i think -- there were two  <Route exact path = "/" component = {Landing}> in App.js. i deleted the second one. Also will these be linked to any issues? like are these boxes going to be buttons?? can I have my temp playground back :(. It can be a temporary button. Wait... I can do localhost3000/susanspalygrpudn right? hold on let me try. Also i am amazed by how this looks"
     }
 
 ]

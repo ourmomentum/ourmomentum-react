@@ -17,7 +17,7 @@ function App() {
       <Route exact path = "/" component = {Landing}>
 
       </Route>
-      <Route exact path = '/' component={Landing} />
+      
     </BrowserRouter>
   );
 }
