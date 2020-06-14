@@ -4,8 +4,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import SusansPlayground from './components/susans-playground/SusansPlayground';
 import Landing from './components/Landing';
 
-import { BrowserRouter, Route } from 'react-router-dom';
-import Landing from './components/home-screen/Landing';
+
 
 function App() {
 
