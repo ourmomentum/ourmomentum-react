@@ -1,7 +1,7 @@
 import React from 'react'
 import posts from './testposts'
 import { Grid, Typography } from '@material-ui/core'
-import BlogPreview from '../../blog-preview/BlogPreview'
+import BlogPreview from './blog-preview/BlogPreview'
 import { useTheme } from '@material-ui/core/styles';
 
 
