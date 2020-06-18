@@ -22,7 +22,7 @@ export default function FullScreenBanner(props) {
                      justifyContent: 'center',
                      alignItems: 'flex-end',
                      width: '100%',
-                     backgroundImage: 'url(\'eureka_banner.svg\')',
+                     backgroundImage: 'url(\'banner_eureka.svg\')',
                      backgroundPosition: 'center',
                      backgroundRepeat: 'none',
                      backgroundSize: 'cover'}}
