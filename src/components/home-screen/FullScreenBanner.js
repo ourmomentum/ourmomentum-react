@@ -1,8 +1,12 @@
 import React, { useRef } from 'react'
 import ViewMore from '@material-ui/icons/ExpandMore'
 import { Icon } from '@material-ui/core'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+import { useTheme } from '@material-ui/core/styles'
 
 export default function FullScreenBanner(props) {
+
+    const theme = useTheme();
 
     const bannerRef = useRef(null);
 
@@ -17,7 +21,7 @@ export default function FullScreenBanner(props) {
 
 
     return (
-        <div style={{height: props.height,
+        <div style={{height: 'calc(100vh - ' + ((useMediaQuery(theme.breakpoints.up('sm'))) ? '64px' : '56px') + ')',
                      display: 'flex',
                      justifyContent: 'center',
                      alignItems: 'flex-end',
