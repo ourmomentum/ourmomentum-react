@@ -2,21 +2,35 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Landing from './components/home-screen/Landing';
-import Issues from './components/pages/Issues'
-import Blog from './components/pages/Blog'
-import Team from './components/pages/Team'
-import Contact from './components/pages/Contact'
+import { ThemeProvider } from '@material-ui/core';
+import { createMuiTheme } from '@material-ui/core/styles'
+import { MOMENTUM_LIGHT_GREEN, MOMENTUM_SIGNATURE_GREEN, MOMENTUM_RED } from './colors';
+import Login from './components/login/Login';
+import MomentumToolbar from './components/toolbar/MomentumToolbar';
 
 function App() {
+  const theme = createMuiTheme({
+    palette: {
+      primary: {
+        light: MOMENTUM_LIGHT_GREEN,
+        main: MOMENTUM_SIGNATURE_GREEN,
+        contrastText: '#FFFFFF'
+      }, secondary: {
+        main: MOMENTUM_RED
+      }
+    }
+});
+
   return (
     <BrowserRouter>
-      <Route exact path = '/' component={Landing} />
-      <Route path="/issues" component={Issues} />
-      <Route path="/blog" component={Blog} />
-      <Route path="/team" component={Team} />
-      <Route path="/contact" component={Contact} />
+        <ThemeProvider theme={theme}>
+          <Route path = '/' component={MomentumToolbar} />
+          <Route exact path = '/' component={Landing} />
+          <Route path='/login' component={Login} />
+        </ThemeProvider>
     </BrowserRouter>
   );
 }
 
 export default App;
+ 

@@ -5,6 +5,7 @@ import LibraryBooksIcon from '@material-ui/icons/LibraryBooks'
 import MenuBooksIcon from '@material-ui/icons/MenuBook'
 import PeopleIcon from '@material-ui/icons/People'
 import LoginIcon from '@material-ui/icons/VpnKey'
+import { Link } from 'react-router-dom'
 export default function MobileToolbar() {
     
     const [drawerOpen, setDrawerOpen] = useState(false);
@@ -21,22 +22,30 @@ export default function MobileToolbar() {
             </AppBar>
             <Drawer anchor='left' open={drawerOpen} onClose={()=>setDrawerOpen(false)}>
             <List>
-                <ListItem>
-                    <ListItemIcon><LibraryBooksIcon /></ListItemIcon>
-                    <ListItemText>Blog</ListItemText>
-                </ListItem>
-                <ListItem>
-                    <ListItemIcon><MenuBooksIcon /></ListItemIcon>
-                    <ListItemText>Read Momentum</ListItemText>
-                </ListItem>
-                <ListItem>
-                    <ListItemIcon><PeopleIcon /></ListItemIcon>
-                    <ListItemText>Our Story</ListItemText>
-                </ListItem>
-                <ListItem>
-                    <ListItemIcon><LoginIcon /></ListItemIcon>
-                    <ListItemText>Log In</ListItemText>
-                </ListItem>
+                <Link to='/'>
+                    <ListItem>
+                        <ListItemIcon><LibraryBooksIcon /></ListItemIcon>
+                        <ListItemText>Blog</ListItemText>
+                    </ListItem>
+                </Link>
+                <Link to='/read-momentum'>
+                    <ListItem>
+                        <ListItemIcon><MenuBooksIcon /></ListItemIcon>
+                        <ListItemText>Read Momentum</ListItemText>
+                    </ListItem>
+                </Link>
+                <Link to='/our-story'>
+                    <ListItem>
+                        <ListItemIcon><PeopleIcon /></ListItemIcon>
+                        <ListItemText>Our Story</ListItemText>
+                    </ListItem>
+                </Link>
+                <Link to='/login'>
+                    <ListItem>
+                        <ListItemIcon><LoginIcon /></ListItemIcon>
+                        <ListItemText>Log In</ListItemText>
+                    </ListItem>
+                </Link>
             </List>
             </Drawer>
         </React.Fragment>
