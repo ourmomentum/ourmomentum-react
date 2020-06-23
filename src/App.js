@@ -6,6 +6,8 @@ import { ThemeProvider } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles'
 import { MOMENTUM_LIGHT_GREEN, MOMENTUM_SIGNATURE_GREEN, MOMENTUM_RED } from './colors';
 import Login from './components/login/Login';
+import Register from './components/register/Register';
+
 import MomentumToolbar from './components/toolbar/MomentumToolbar';
 
 function App() {
@@ -27,6 +29,7 @@ function App() {
           <Route path = '/' component={MomentumToolbar} />
           <Route exact path = '/' component={Landing} />
           <Route path='/login' component={Login} />
+          <Route path='/register' component={Register} />
         </ThemeProvider>
     </BrowserRouter>
   );
