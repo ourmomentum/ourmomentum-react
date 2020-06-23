@@ -32,7 +32,7 @@ export default function DesktopBlogPreview(props) {
 
 
     return (
-        <Paper style={{borderRadius: "1em", padding: "2em 0", width: "100%"}} elevation={5}>
+        <Paper style={{padding: "2em 0", width: "100%", borderRadius:'0', borderStyle:'solid'}}>
             <Grid container style={{}}>
                 <Grid item xs={1} className='prev-next'>
                     <Icon style={{width: '50%', height: 'auto'}} onClick={decrementPage}><PreviousIcon style={{width: '100%', height: 'auto'}}/></Icon>
@@ -42,7 +42,7 @@ export default function DesktopBlogPreview(props) {
                     <Icon style={{width: '50%', height: 'auto'}} onClick={incrementPage}><NextIcon style={{width: '100%', height: 'auto'}}/></Icon>
                 </Grid>
             </Grid>
-            <Divider style={{marginTop: '1em'}} />
+            {/*<Divider style={{marginTop: '1em'}} />
             <Grid container>
                 <Grid item xs={12} style={{display: 'flex', justifyContent: 'center', paddingTop: '1em'}}>
                     <Button style={{fontSize: '1em'}}>Read More</Button>
@@ -52,7 +52,7 @@ export default function DesktopBlogPreview(props) {
                 <Grid item xs={12} style={{display: 'flex', justifyContent: 'center'}}>
                     <Pagination count={props.posts.length} onChange={handlePageChange} page={actualPage + 1} color='primary' hideNextButton hidePrevButton/>
                 </Grid>
-            </Grid>
+            </Grid>*/}
         </Paper>
     )
 }

@@ -20,26 +20,26 @@ export default function DesktopBlogContent(props) {
         <React.Fragment>
             <Grid item xs={4}>
                 <Grid container>
-                    <Grid item xs={12} style={{padding: '0.25em 0.44em'}}>
+                    <Grid item xs={12} style={{}}>
                         <Fade in={!shouldFade} onExited={onNewTextComplete}>
-                            <img src='testim.jpg' style={{width: '100%', borderRadius: '1em'}} alt='Article Imagery' />
+                            <img src='Economics.jpg' style={{width: '100%', marginRight:'1em'}} alt='Article Imagery' />
                         </Fade>
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid item xs={1}/>
+            {/*<Grid item xs={1}/>*/}   
             <Grid item xs style={{alignItems: 'flex-start'}}>
             <Fade in={!shouldFade} onExited={onNewTextComplete}>
 
                 <Grid container>
                     <Grid container>
                         <Grid item xs={12} style={{display: 'flex', justifyContent: 'center'}}>
-                                <Typography variant="h3" style={{fontWeight: 'bold'}}>{title}</Typography>
+                                <Typography style={{fontWeight: 'bold', marginBottom:'0.25em', fontSize:'1.75em', textTransform:'uppercase'}}>{title}</Typography>
                         </Grid>
                     </Grid>
-                    <Grid container style={{marginTop: '1em', marginBottom: '0.5em'}}>
+                    <Grid container style={{}}>
                         <Grid item xs={12}>
-                            <Typography variant='body1' style={{fontSize: '1.2em', textAlign: 'justify'}}>{content.substring(0, 375) + '...'}</Typography>
+                            <Typography variant='body1' style={{fontSize: '1.2em', textAlign: 'justify'}}>{content.substring(0, 275) + '...'} {<a href="#" style={{fontWeight:'bold', fontSize:'0.9em', textTransform:'uppercase', color:'#51AF9D'}}>Read More</a>}</Typography>
                         </Grid>
                     </Grid>
                 </Grid>
