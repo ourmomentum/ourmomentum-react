@@ -15,9 +15,9 @@ export default function FeaturedArticles() {
                     <Typography variant='h3' style={{fontWeight:'bold', letterSpacing: '0.25em'}}>FEATURED ARTICLES</Typography>
                 </Grid>
             </Grid>
-                <Grid container style={{width: '100%', marginTop: '2.5vh'}}>
-                    <BlogPreview margin = {((!theme.breakpoints.down('sm') ? 1 : (2 % 2) ) + 2 + 'em')} posts={posts} />
-                </Grid>
+            <Grid container style={{width: '100%', marginTop: '2.5vh'}}>
+                <BlogPreview margin = {((!theme.breakpoints.down('sm') ? 1 : (2 % 2) ) + 2 + 'em')} posts={posts} />
+            </Grid>
         </div>
     )
 }
