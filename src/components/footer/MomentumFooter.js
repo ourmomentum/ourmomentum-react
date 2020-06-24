@@ -7,7 +7,6 @@ export default function MomentumFooter() {
             <Grid item xs={12}>
                 <Typography variant='body1'>Foot</Typography>
             </Grid>
-
         </Grid>
     )
 }
