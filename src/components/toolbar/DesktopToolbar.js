@@ -1,8 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { AppBar, Toolbar,  Typography, Grid, Menu, MenuItem } from '@material-ui/core'
 import { Link } from "react-router-dom"
+import { isLoggedIn } from '../../utilities/MomentumRequests';
 export default function DesktopToolbar() {
     const [userMenu, setUserMenu] = useState();
+    const [showUser, setShowUser] = useState(false);
+
+    useEffect(() => {
+        isLoggedIn().then(()=>setShowUser(true)).catch();
+    }, [])
+
+    
 
     const handleClick = (event) => {
         setUserMenu(event.currentTarget);
@@ -27,18 +35,22 @@ export default function DesktopToolbar() {
                                 <Link to="/read-momentum"><Typography variant="button">Read Momentum</Typography></Link>      
                                     
                                 <Link to="/our-story"><Typography variant="button">Our Story</Typography></Link>     
-                                    
-                                <Link to="/login"><Typography variant="button">Log In</Typography></Link>    
-
-                                <Link><Typography variant='button' onClick={handleClick}> Hi, TestUser</Typography></Link>    
-                                <Menu anchorEl={userMenu} open={Boolean(userMenu)} onClose={handleClose}>
-                                    <MenuItem>
-                                        <Link><Typography variant='button'>My Submissions</Typography></Link>
-                                    </MenuItem>
-                                    <MenuItem>
-                                        <Link><Typography variant='button'>User Details</Typography></Link>
-                                    </MenuItem>
-                                </Menu>
+                                {
+                                    (showUser) ?
+                                    <React.Fragment>
+                                        <Link><Typography variant='button' onClick={handleClick}> Hi, TestUser</Typography></Link>    
+                                        <Menu anchorEl={userMenu} open={Boolean(userMenu)} onClose={handleClose}>
+                                            <MenuItem>
+                                                <Link><Typography variant='button'>My Submissions</Typography></Link>
+                                            </MenuItem>
+                                            <MenuItem>
+                                                <Link><Typography variant='button'>User Details</Typography></Link>
+                                            </MenuItem>
+                                        </Menu>
+                                    </React.Fragment>
+                                :
+                                ''
+                                }
                         </Grid>
                         <Grid item md={1} />
                     </Grid>

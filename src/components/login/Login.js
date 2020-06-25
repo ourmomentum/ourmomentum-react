@@ -4,9 +4,11 @@ import { useTheme } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { BACKEND_URL } from '../../constants'
-
+import { makeAuthorizedRequest } from '../../utilities/MomentumRequests'
+import { useHistory } from 'react-router-dom'
 
 export default function Login() {
+    const history = useHistory();
     const [signInInfo, setSignInInfo] = useState({});
     const theme = useTheme();
 
@@ -75,6 +77,15 @@ export default function Login() {
                     onClick={()=>{axios.get(BACKEND_URL + '/refresh', {withCredentials: true}).then()}}
                 >
                     Test Refresh
+                </Button>
+                <Button
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    style={{marginTop: '1em'}}
+                    onClick={()=>{makeAuthorizedRequest('/authorized/test', null, history).then(res => console.log(res)).catch(err=>console.log(err))}}
+                >
+                    Test Authorized Request
                 </Button>
                 <Grid container style={{marginTop: '1em'}}>
                     <Grid item xs>
