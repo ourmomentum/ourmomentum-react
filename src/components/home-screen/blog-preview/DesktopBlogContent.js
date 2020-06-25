@@ -22,12 +22,13 @@ export default function DesktopBlogContent(props) {
                 <Grid container>
                     <Grid item xs={12} style={{}}>
                         <Fade in={!shouldFade} onExited={onNewTextComplete}>
+                            <div className="imageDiv">
                             <img src='Economics.jpg' style={{width: '100%', marginRight:'1em'}} alt='Article Imagery' />
+                            </div>
                         </Fade>
                     </Grid>
                 </Grid>
             </Grid>
-            {/*<Grid item xs={1}/>*/}   
             <Grid item xs style={{alignItems: 'flex-start'}}>
             <Fade in={!shouldFade} onExited={onNewTextComplete}>
 

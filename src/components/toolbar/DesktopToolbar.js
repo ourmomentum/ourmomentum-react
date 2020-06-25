@@ -11,7 +11,7 @@ export default function DesktopToolbar() {
     const handleClose = () => {
         setUserMenu(null);
     }
-    
+
     return (
         <React.Fragment>
             <AppBar style={{background: "#FFFFFF"}} title={<img src="logo.svg" alt="Momentum Magazine"/>} id='toolbar'>
@@ -22,15 +22,17 @@ export default function DesktopToolbar() {
                         </Grid>
                         <Grid item sm />
                         <Grid item sm={10} md={6} lg={5} xl={4} style={{display: "flex", justifyContent: "space-between"}}>
-                                <Link to="/"><Typography variant="button">Blog</Typography></Link>      
-                                    
-                                <Link to="/read-momentum"><Typography variant="button">Read Momentum</Typography></Link>      
-                                    
-                                <Link to="/our-story"><Typography variant="button">Our Story</Typography></Link>     
-                                    
-                                <Link to="/login"><Typography variant="button">Log In</Typography></Link>    
+                                <Link to="/"><Typography variant="button">Blog</Typography></Link>
 
-                                <Link><Typography variant='button' onClick={handleClick}> Hi, TestUser</Typography></Link>    
+                                <Link to="/read-momentum"><Typography variant="button">Read Momentum</Typography></Link>
+
+                                <Link to="/our-story"><Typography variant="button">Our Story</Typography></Link>
+
+                                <Link to="/contact"><Typography variant="button">Contact</Typography></Link>     
+
+                                <Link to="/login"><Typography variant="button">Log In</Typography></Link>
+
+                                <Link><Typography variant='button' onClick={handleClick}> Hi, TestUser</Typography></Link>
                                 <Menu anchorEl={userMenu} open={Boolean(userMenu)} onClose={handleClose}>
                                     <MenuItem>
                                         <Link><Typography variant='button'>My Submissions</Typography></Link>

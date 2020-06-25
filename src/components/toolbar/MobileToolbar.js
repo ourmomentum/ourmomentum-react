@@ -5,9 +5,10 @@ import LibraryBooksIcon from '@material-ui/icons/LibraryBooks'
 import MenuBooksIcon from '@material-ui/icons/MenuBook'
 import PeopleIcon from '@material-ui/icons/People'
 import LoginIcon from '@material-ui/icons/VpnKey'
+import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 import { Link } from 'react-router-dom'
 export default function MobileToolbar() {
-    
+
     const [drawerOpen, setDrawerOpen] = useState(false);
     // TODO: Make into JSON file to be used across desktop and mobile toolbar.
     return (
@@ -44,6 +45,12 @@ export default function MobileToolbar() {
                     <ListItem>
                         <ListItemIcon><LoginIcon /></ListItemIcon>
                         <ListItemText>Log In</ListItemText>
+                    </ListItem>
+                </Link>
+                <Link to='/contact'>
+                    <ListItem>
+                        <ListItemIcon><ImportContactsIcon /></ListItemIcon>
+                        <ListItemText>Contact</ListItemText>
                     </ListItem>
                 </Link>
             </List>

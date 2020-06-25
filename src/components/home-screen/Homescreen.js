@@ -20,12 +20,11 @@ export default function HomeScreen(props) {
     return (
         <React.Fragment>
             <div ref={toolbarRef}>
-                
+
             </div>
                 <FullScreenBanner height={'calc(100vh - ' + bannerHeight + 'px)'}/>
                 <FeaturedArticles/>
                 <EditorsNote />
-                <MomentumFooter />
         </React.Fragment>
     )
 }

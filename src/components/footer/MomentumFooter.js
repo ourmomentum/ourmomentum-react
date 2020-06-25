@@ -20,10 +20,10 @@ export default function MomentumFooter() {
                     <Button variant='outlined' style={{marginRight:'1em', color:'#9c9c9c'}} target="_blank" href="#">Our Policies</Button>
                     <Button variant='outlined' style={{marginRight:'1em', backgroundColor:'#51AF9D', color:'white', borderColor:'#51AF9D'}} target="_blank" href="https://www.patreon.com/join/themomentummagazine">Patreon</Button>
                 </Grid>
-                <Grid item xs />    
+                <Grid item xs />
             </Grid>
-            
+
         </Grid>
-        
+
     )
 }
