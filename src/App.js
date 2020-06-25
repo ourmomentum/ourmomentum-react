@@ -8,6 +8,7 @@ import { MOMENTUM_LIGHT_GREEN, MOMENTUM_SIGNATURE_GREEN, MOMENTUM_RED } from './
 import Login from './components/login/Login';
 import Register from './components/register/Register';
 import Contact from './components/contact/Contact';
+import Issues from './components/issues/Issues'
 import Footer from './components/footer/MomentumFooter'
 
 import MomentumToolbar from './components/toolbar/MomentumToolbar';
@@ -33,6 +34,7 @@ function App() {
           <Route path='/login' component={Login} />
           <Route path='/register' component={Register} />
           <Route path='/contact' component={Contact} />
+          <Route path='/read-momentum' component={Issues} />
           <Route path = '/' component={Footer} />
         </ThemeProvider>
     </BrowserRouter>

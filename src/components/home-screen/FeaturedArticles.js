@@ -11,7 +11,7 @@ export default function FeaturedArticles() {
     return (
         <div>    
             <Grid container>
-                <Grid item xs={12} style={{display: 'flex', justifyContent: 'center', paddingTop:'1.5em', paddingBottom:'0em'}}>
+                <Grid item xs={12} style={{display: 'flex', justifyContent: 'center', paddingTop:'3em', paddingBottom:'0em'}}>
                     <Typography variant='h3' style={{fontWeight:'bold', letterSpacing: '0.25em'}}>FEATURED ARTICLES</Typography>
                 </Grid>
             </Grid>

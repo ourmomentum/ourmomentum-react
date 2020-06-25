@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Typography } from '@material-ui/core'
+import { Grid, Typography, CardMedia } from '@material-ui/core'
 import { useTheme } from '@material-ui/core/styles';
 
 export default function EditorsNote() {
@@ -8,14 +8,14 @@ export default function EditorsNote() {
     return (
         <div>    
             <Grid container>
-                <Grid item xs={12} style={{display: 'flex', justifyContent: 'center', paddingTop:'2em', paddingBottom:'0em'}}>
+                <Grid item xs={12} style={{display: 'flex', justifyContent: 'center', paddingTop:'6em', paddingBottom:'0em'}}>
                     <Typography variant='h4' style={{fontWeight:'bold', letterSpacing: '0.25em'}}>A NOTE FROM OUR EDITOR</Typography>
                 </Grid>
             </Grid>
 
             <Grid container>
                 <Grid item xs />    
-                <Grid item xs={6} style={{display: 'flex', justifyContent: 'left', paddingTop:'2em', paddingBottom:'0em'}}>
+                <Grid item xs={6} style={{display: 'flex', justifyContent: 'left', paddingTop:'3em', paddingBottom:'0em'}}>
                     <Typography variant='body1' style={{textAlign:'justify'}}>
                         Dear Reader,<br /><br />
                         <span style = {{color: '#51AF9D', fontWeight:'bold', float: 'left', fontSize: '3em', lineHeight: '1em', /*paddingTop: '4px', padding-right: '8px';*/  paddingRight: '0.15em'}}>W</span>
@@ -33,6 +33,8 @@ export default function EditorsNote() {
                         <br /><br />
                         Sincerely,
                         <br />
+                        <img src='RissaSignature.PNG' style={{width: '10em'}} alt='Rissa Signature' />
+                        < br />
                         Rissa Kei Chua
                         <br />
                         Founder and Editor – in – Chief

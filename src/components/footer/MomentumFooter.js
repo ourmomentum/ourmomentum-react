@@ -2,7 +2,7 @@ import React from 'react'
 import { Typography, Grid, Button, Link } from '@material-ui/core'
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
-import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 export default function MomentumFooter() {
     return (
@@ -13,7 +13,7 @@ export default function MomentumFooter() {
                     <Typography style={{fontSize:'1.05em', color:'#9c9c9c'}}>© 2020 Momentum Magazine</Typography>
                     <Link target="_blank" href="https://www.instagram.com/momentumagazine"><InstagramIcon style={{marginLeft:'0.6em', color:'#9c9c9c'}}/></Link>
                     <Link target="_blank" href="https://www.twitter.com/ourmomentummag"><TwitterIcon style={{marginLeft:'0.3em', color:'#9c9c9c'}}/></Link>
-                    <Link target="_blank" href="https://github.com/ourmomentum/ourmomentum-react"><GitHubIcon style={{marginLeft:'0.3em', color:'#9c9c9c'}}/></Link>
+                    <Link target="_blank" href="https://www.linkedin.com/company/momentummagazine/"><LinkedInIcon style={{marginLeft:'0.3em', color:'#9c9c9c'}}/></Link>
                 </Grid>
                 <Grid item xs={4}>
                     <Button variant='outlined' style={{marginRight:'1em', color:'#9c9c9c'}} target="_blank" href="#">Follow Us</Button>
