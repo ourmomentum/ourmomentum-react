@@ -7,8 +7,11 @@ import { createMuiTheme } from '@material-ui/core/styles'
 import { MOMENTUM_LIGHT_GREEN, MOMENTUM_SIGNATURE_GREEN, MOMENTUM_RED } from './colors';
 import Login from './components/login/Login';
 import Register from './components/register/Register';
+import { createStore } from 'redux';
 
 import MomentumToolbar from './components/toolbar/MomentumToolbar';
+const store = createStore();
+
 
 function App() {
   const theme = createMuiTheme({

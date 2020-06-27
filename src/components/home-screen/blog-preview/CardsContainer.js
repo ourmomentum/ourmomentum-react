@@ -8,9 +8,42 @@ export default function CardsContainer(props) {
     const [cards, setCards] = useState([]);
     const theme = useTheme();
     const [maxCards, setMaxCards] = useState(1);
-    const threeCards = useMediaQuery(theme.breakpoints.up('lg'));
+    const threeCards = useMediaQuery(theme.breakpoints.up('xl'));
     const twoCards = useMediaQuery(theme.breakpoints.up('md'));
     const [prevCard, setPrevCard] = useState(props.cardNum);
+
+    const changeCards = (currentCards) => {
+        let currentCard = cardNum;
+        if (props.children.length > 2){
+            const cardsOrdered = [];
+            for (let i = 0; i < maxCards; i++) {
+                if (currentCard + i >= props.children.length) {
+                    currentCard = -i;
+                }
+                cardsOrdered.push(props.children[currentCard + i]())
+                cardsOrdered.push(<Grid item xs />)
+            }
+            setCards(cardsOrdered);
+        } else {
+            return 'Too little articles for card layout';
+        }
+    }
+
+    const layOutCards = () => {
+        let tempCards = [...cards];
+        if (cardNum === prevCard + 1 || (cardNum < prevCard && cardNum != prevCard - 1)) {
+            console.log(Number(cards[0].key))
+            tempCards[0] = props.children[Number(cards[0].key)](true, changeCards.bind(this, tempCards));
+            setCards(tempCards);
+        } else if (cardNum === prevCard - 1  || (cardNum > prevCard && cardNum != prevCard + 1)) {
+            tempCards[(maxCards - 1) * 2] = props.children[Number(tempCards[(maxCards - 1) * 2].key)](true, changeCards.bind(this, tempCards));
+            setCards(tempCards);
+        } else {
+            changeCards(tempCards);
+        }
+        console.log(tempCards)
+        setPrevCard(cardNum);
+    }
 
     useEffect(()=>{
         if (threeCards) {
@@ -35,23 +68,7 @@ export default function CardsContainer(props) {
         layOutCards();
     }, [cardNum, maxCards])
 
-    const layOutCards = () => {
-        let currentCard = cardNum;
-        if (props.children.length > 2){
-            const cardsOrdered = [];
-            for (let i = 0; i < maxCards; i++) {
-                if (currentCard + i >= props.children.length) {
-                    currentCard = -i;
-                }
-                cardsOrdered.push(props.children[currentCard + i](i))
-                cardsOrdered.push(<Grid item xs />)
-            }
-            console.log(prevCard)
-            setCards(cardsOrdered);
-        } else {
-            return 'Too little articles for card layout';
-        }
-    }
+
     return (
         <Grid container>
             <Grid item xs />

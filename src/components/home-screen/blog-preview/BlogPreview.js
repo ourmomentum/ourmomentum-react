@@ -1,7 +1,7 @@
 import { Grid, Grow, Icon } from '@material-ui/core';
 import React, { useEffect, useState, useRef } from 'react';
 import './BlogPreview.css';
-import DesktopBlogPreview from './DesktopBlogPreview';
+import FeaturedCard from './FeaturedCard';
 import CardsContainer from './CardsContainer';
 import NextIcon from '@material-ui/icons/NavigateNext'
 import PreviousIcon from '@material-ui/icons/NavigateBefore'
@@ -34,7 +34,7 @@ export default function BlogPreview(props) {
             <Grid item xs={10} style={{marginTop: props.margin}}>
                 <Grid container>
                         <CardsContainer cardNum={actualPage}>
-                            {props.posts.map((el, i) => (type) => <DesktopBlogPreview post={el} key={i} type={type}> Hello world!</DesktopBlogPreview>)}
+                            {props.posts.map((el, i) => (shouldExit, callback) => <FeaturedCard post={el} key={i} shouldExit = {shouldExit} callback={callback}> Hello world!</FeaturedCard>)}
                         </CardsContainer>
                 </Grid>
             </Grid>

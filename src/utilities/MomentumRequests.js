@@ -4,6 +4,12 @@ import { BACKEND_URL } from '../constants'
 
 export const makeAuthorizedRequest = (path, payload, history) => {
 
+    let currentlyLoggedIn;
+
+    const isLoggedInTimer = () => {
+        isLoggedIn = false;
+    }
+
     return new Promise((resolve, reject) => {
         if (payload) {
             axios.post(BACKEND_URL + path, payload, {withCredentials: true}).then(res=>{resolve(res)}).catch(err => {
@@ -32,39 +38,30 @@ export const makeAuthorizedRequest = (path, payload, history) => {
             });
         } else {
             axios.get(BACKEND_URL + path, {withCredentials: true}).then(res=>{resolve(res)}).catch(err => {
-                if (err.response.status == 401) {
+                if (err.response && err.response.status == 401) {
                     axios.get(BACKEND_URL + '/refresh', {withCredentials: true}).then(()=>{
                         axios.get(BACKEND_URL + path, {withCredentials: true})
                         .then((res)=>{
                             resolve(res);
                         })
                         .catch(err => {
-                            reject(err.response.status);
+                            reject();
                         })
                     })
                     .catch(err => {
-                        if (err.response.status == 401) {
+                        if (err.response && err.response.status == 401) {
                             if (history) {
                                 history.push('/login');
                             }
                         } else {
-                            reject(err.response.status);
+                            reject();
                         }
                     })
                 } else {
-                    reject(err.response.status);
+                    reject();
                 }
             });
         }
-    });
-
-}
-
-export const isLoggedIn = () => {
-    return new Promise((resolve, reject) => {
-        makeAuthorizedRequest('/authorized/check')
-        .then(() => resolve())
-        .catch(() => reject())
     });
 
 }

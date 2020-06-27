@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { AppBar, Toolbar,  Typography, Grid, Menu, MenuItem } from '@material-ui/core'
 import { Link } from "react-router-dom"
-import { isLoggedIn } from '../../utilities/MomentumRequests';
 export default function DesktopToolbar() {
     const [userMenu, setUserMenu] = useState();
     const [showUser, setShowUser] = useState(false);
