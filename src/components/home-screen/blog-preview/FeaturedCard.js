@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Paper, Grid, Button, Divider, Icon, Typography, hexToRgb } from '@material-ui/core'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MOMENTUM_SIGNATURE_GREEN, MOMENTUM_LIGHT_GREEN } from '../../../colors';
+import { MOMENTUM_SIGNATURE_GREEN, MOMENTUM_LIGHT_GREEN } from '../../../constants/colors';
 
 
 export default function FeaturedCard(props) {

@@ -1,14 +1,8 @@
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
-import { BACKEND_URL } from '../constants'
+import { BACKEND_URL } from '../constants/urls'
 
 export const makeAuthorizedRequest = (path, payload, history) => {
-
-    let currentlyLoggedIn;
-
-    const isLoggedInTimer = () => {
-        isLoggedIn = false;
-    }
 
     return new Promise((resolve, reject) => {
         if (payload) {

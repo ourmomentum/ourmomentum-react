@@ -6,7 +6,7 @@ export default function DesktopToolbar() {
     const [showUser, setShowUser] = useState(false);
 
     useEffect(() => {
-        isLoggedIn().then(()=>setShowUser(true)).catch();
+        
     }, [])
 
     

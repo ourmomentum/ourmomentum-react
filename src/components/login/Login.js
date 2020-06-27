@@ -3,9 +3,10 @@ import { Paper, Avatar, Typography, TextField, FormControlLabel, Button, Grid, C
 import { useTheme } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { BACKEND_URL } from '../../constants'
+import { BACKEND_URL } from '../../constants/urls'
 import { makeAuthorizedRequest } from '../../utilities/MomentumRequests'
 import { useHistory } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 const LOGIN_STATE_NONE = 0, LOGIN_WAITING = 1, LOGIN_FAILED = 2;
 
@@ -18,6 +19,12 @@ export default function Login() {
     const [errorText, setErrorText] = useState('');
     const theme = useTheme();
 
+    const mapStateToProps = (state) => {
+        console.log('State :' + state);
+    }
+
+    connect(mapStateToProps)(a => console.log(a));
+
     const handleFieldChange = (e) => {
         let tempInfo = signInInfo;
         tempInfo[e.target.name] = e.target.value;
@@ -27,7 +34,11 @@ export default function Login() {
     const handleSignIn = () => {
         setLoginState(LOGIN_WAITING)
         if (signInInfo.username && signInInfo.username.length >= 8 && signInInfo.username.length < 40 && signInInfo.password && signInInfo.password.length >= 8 && signInInfo.password.length < 32) {
-            axios.post(BACKEND_URL + '/login', signInInfo, {withCredentials: true}).then((res)=>history.push('/')).catch((err)=>{
+            axios.post(BACKEND_URL + '/login', signInInfo, {withCredentials: true})
+            .then((res)=>{
+                history.push('/')
+            })
+            .catch((err)=>{
                 if (err.response && err.response.status === 401) {
                     setLoginState(LOGIN_FAILED);
                     setErrorText('Incorrect username or password.');
