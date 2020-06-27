@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { AppBar, Toolbar,  Typography, Grid, Menu, MenuItem } from '@material-ui/core'
 import { Link } from "react-router-dom"
+import UserContext from '../../utilities/UserContext';
 export default function DesktopToolbar() {
     const [userMenu, setUserMenu] = useState();
-    const [showUser, setShowUser] = useState(false);
+    const [userInfo, setUserInfo] = useContext(UserContext);
 
     useEffect(() => {
         
@@ -35,9 +36,9 @@ export default function DesktopToolbar() {
                                     
                                 <Link to="/our-story"><Typography variant="button">Our Story</Typography></Link>     
                                 {
-                                    (showUser) ?
+                                    (userInfo.loggedIn && userInfo.user) ?
                                     <React.Fragment>
-                                        <Link><Typography variant='button' onClick={handleClick}> Hi, TestUser</Typography></Link>    
+                                        <Link><Typography variant='button' onClick={handleClick}> Hi, {userInfo.user.username}</Typography></Link>    
                                         <Menu anchorEl={userMenu} open={Boolean(userMenu)} onClose={handleClose}>
                                             <MenuItem>
                                                 <Link><Typography variant='button'>My Submissions</Typography></Link>

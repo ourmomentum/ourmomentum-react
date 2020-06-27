@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Paper, Avatar, Typography, TextField, FormControlLabel, Button, Grid, Checkbox } from '@material-ui/core'
 import { useTheme } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom'
@@ -7,6 +7,7 @@ import { BACKEND_URL } from '../../constants/urls'
 import { makeAuthorizedRequest } from '../../utilities/MomentumRequests'
 import { useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
+import UserContext from '../../utilities/UserContext'
 
 const LOGIN_STATE_NONE = 0, LOGIN_WAITING = 1, LOGIN_FAILED = 2;
 
@@ -17,6 +18,8 @@ export default function Login() {
     const [signInInfo, setSignInInfo] = useState({});
     const [loginState, setLoginState] = useState(LOGIN_STATE_NONE);
     const [errorText, setErrorText] = useState('');
+    const [userInfo, setUserInfo] = useContext(UserContext);
+
     const theme = useTheme();
 
     const mapStateToProps = (state) => {
@@ -36,7 +39,14 @@ export default function Login() {
         if (signInInfo.username && signInInfo.username.length >= 8 && signInInfo.username.length < 40 && signInInfo.password && signInInfo.password.length >= 8 && signInInfo.password.length < 32) {
             axios.post(BACKEND_URL + '/login', signInInfo, {withCredentials: true})
             .then((res)=>{
-                history.push('/')
+                if (res && res.data) {
+                    setUserInfo({loggedIn: true, user: {username: res.data.username}});
+                    history.push('/')
+                } else {
+                    setLoginState(LOGIN_FAILED);
+                    setErrorText('Login failed due to server error. Try again later.')
+                }
+
             })
             .catch((err)=>{
                 if (err.response && err.response.status === 401) {
