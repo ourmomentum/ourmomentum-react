@@ -1,12 +1,10 @@
-import React, { useState } from 'react'
-import { Paper, Avatar, Typography, TextField, FormControlLabel, Button, Grid, Checkbox } from '@material-ui/core'
-import { useTheme } from '@material-ui/core/styles'
+import React from 'react'
+import { Typography, Button, Grid } from '@material-ui/core'
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
 import ContactForm from './ContactForm'
 import EmailIcon from '@material-ui/icons/Email';
-import IconButton from '@material-ui/core/IconButton';
 
 
 export default function Contact(){

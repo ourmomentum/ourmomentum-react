@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Paper, Avatar, Typography, TextField, FormControlLabel, Button, Grid, Checkbox } from '@material-ui/core'
+import { Paper, Typography, TextField, Button} from '@material-ui/core'
 import { useTheme } from '@material-ui/core/styles'
 
 export default function ContactForm(){
