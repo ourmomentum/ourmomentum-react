@@ -18,7 +18,7 @@ export default function DesktopToolbar() {
                 <Toolbar style={{color: "black"}}>
                     <Grid container>
                         <Grid item sm={2}>
-                            <img style={{height: "56px"}} src="logo.svg" alt="Momentum Magazine" />
+                            <Link to="/"><img style={{height: "56px"}} src="logo.svg" alt="Momentum Magazine" /></Link>
                         </Grid>
                         <Grid item sm />
                         <Grid item sm={10} md={6} lg={5} xl={4} style={{display: "flex", justifyContent: "space-between"}}>

@@ -6,6 +6,7 @@ import { ThemeProvider } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles'
 import { MOMENTUM_LIGHT_GREEN, MOMENTUM_SIGNATURE_GREEN, MOMENTUM_RED } from './colors';
 import Login from './components/login/Login';
+import Policies from './components/policies/Policies';
 import Register from './components/register/Register';
 import Contact from './components/contact/Contact';
 import Issues from './components/issues/Issues'
@@ -35,6 +36,7 @@ function App() {
           <Route path='/register' component={Register} />
           <Route path='/contact' component={Contact} />
           <Route path='/read-momentum' component={Issues} />
+          <Route path='/policies' component={Policies} />
           <Route path = '/' component={Footer} />
         </ThemeProvider>
     </BrowserRouter>
