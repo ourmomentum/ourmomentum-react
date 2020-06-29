@@ -30,8 +30,6 @@ export default function DesktopToolbar() {
 
                                 <Link to="/contact"><Typography variant="button">Contact</Typography></Link>     
 
-                                <Link to="/login"><Typography variant="button">Log In</Typography></Link>
-
                                 <Link><Typography variant='button' onClick={handleClick}> Hi, TestUser</Typography></Link>
                                 <Menu anchorEl={userMenu} open={Boolean(userMenu)} onClose={handleClose}>
                                     <MenuItem>
