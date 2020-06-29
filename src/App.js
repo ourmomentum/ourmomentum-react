@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Landing from './components/home-screen/Landing';
 import { ThemeProvider } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles'
-import { MOMENTUM_LIGHT_GREEN, MOMENTUM_SIGNATURE_GREEN, MOMENTUM_RED } from './colors';
+import { MOMENTUM_LIGHT_GREEN, MOMENTUM_SIGNATURE_GREEN, MOMENTUM_RED } from './constants/colors';
 import Login from './components/login/Login';
 import Policies from './components/policies/Policies';
 import Register from './components/register/Register';
@@ -12,9 +12,28 @@ import Contact from './components/contact/Contact';
 import Issues from './components/issues/Issues'
 import Footer from './components/footer/MomentumFooter'
 
+import Cookie from 'universal-cookie'
 import MomentumToolbar from './components/toolbar/MomentumToolbar';
+import UserContext from './utilities/UserContext';
+import { useEffect } from 'react';
+import { makeAuthorizedRequest } from './utilities/MomentumRequests';
+
+
+
 
 function App() {
+  const [userInfo, setUserInfo] = useState({});
+
+  useEffect(() => {
+    makeAuthorizedRequest('/authorized/check')
+    .then((res) => {
+      if (res && res.data) {
+        console.log(res)
+        setUserInfo({loggedIn: true, user: res.data})
+      }
+    })
+  }, [])
+
   const theme = createMuiTheme({
     palette: {
       primary: {
@@ -28,8 +47,9 @@ function App() {
 });
 
   return (
-    <BrowserRouter>
-        <ThemeProvider theme={theme}>
+    <UserContext.Provider value={[userInfo, setUserInfo]}>
+      <BrowserRouter>
+          <ThemeProvider theme={theme}>
           <Route path = '/' component={MomentumToolbar} />
           <Route exact path = '/' component={Landing} />
           <Route path='/login' component={Login} />
@@ -38,9 +58,10 @@ function App() {
           <Route path='/read-momentum' component={Issues} />
           <Route path='/policies' component={Policies} />
           <Route path = '/' component={Footer} />
-        </ThemeProvider>
-    </BrowserRouter>
+          </ThemeProvider>
+      </BrowserRouter>
+    </UserContext.Provider>
   );
 }
-
+ 
 export default App;

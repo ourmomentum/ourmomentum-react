@@ -3,7 +3,7 @@ import { Paper, Avatar, Typography, TextField, FormControlLabel, Button, Grid, C
 import { useTheme } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { BACKEND_URL } from '../../constants';
+import { BACKEND_URL } from '../../constants/urls';
 
 
 export default function Login() {
