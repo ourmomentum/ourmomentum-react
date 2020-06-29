@@ -18,6 +18,7 @@ import { makeAuthorizedRequest } from './utilities/MomentumRequests';
 
 function App() {
   const [userInfo, setUserInfo] = useState({});
+
   useEffect(() => {
     makeAuthorizedRequest('/authorized/check')
     .then((res) => {
@@ -26,9 +27,6 @@ function App() {
         setUserInfo({loggedIn: true, user: res.data})
       }
     })
-    return () => {
-      
-    }
   }, [])
 
   const theme = createMuiTheme({
@@ -56,6 +54,6 @@ function App() {
     </UserContext.Provider>
   );
 }
-
+ 
 export default App;
  

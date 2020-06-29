@@ -21,7 +21,7 @@ export default function CardsContainer(props) {
                     currentCard = -i;
                 }
                 cardsOrdered.push(props.children[currentCard + i]())
-                cardsOrdered.push(<Grid item xs />)
+                cardsOrdered.push(<Grid key={'g' + i} item xs />)
             }
             setCards(cardsOrdered);
         } else {

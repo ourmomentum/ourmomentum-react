@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { AppBar, Toolbar,  Typography, Grid, Menu, MenuItem } from '@material-ui/core'
 import { Link } from "react-router-dom"
 import UserContext from '../../utilities/UserContext';
+import { makeAuthorizedRequest, deleteCreds } from '../../utilities/MomentumRequests';
 export default function DesktopToolbar() {
     const [userMenu, setUserMenu] = useState();
     const [userInfo, setUserInfo] = useContext(UserContext);
@@ -18,6 +19,16 @@ export default function DesktopToolbar() {
 
     const handleClose = () => {
         setUserMenu(null);
+    }
+
+    const logOut = () => {
+        sessionStorage.clear();
+        setUserInfo({});
+        deleteCreds();
+        makeAuthorizedRequest('/logout')
+        .then(() => {
+            window.location.reload();
+        }).catch();
     }
     
     return (
@@ -45,6 +56,9 @@ export default function DesktopToolbar() {
                                             </MenuItem>
                                             <MenuItem>
                                                 <Link><Typography variant='button'>User Details</Typography></Link>
+                                            </MenuItem>
+                                            <MenuItem onClick={logOut}>
+                                                <Link><Typography variant='button'>Log Out</Typography></Link>
                                             </MenuItem>
                                         </Menu>
                                     </React.Fragment>

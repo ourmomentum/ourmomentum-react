@@ -19,7 +19,7 @@ export const MOMENTUM_RED = "#EA421B";
 export const MOMENTUM_SIGNATURE_GREEN = "#51AF9D"
 
 
-export const MOMENTUM_LIGHT_GREEN = "#EC588"
+export const MOMENTUM_LIGHT_GREEN = "#2EC588"
 
 export const MOMENTUM_MED_GREEN = "#72BEA0";
 
