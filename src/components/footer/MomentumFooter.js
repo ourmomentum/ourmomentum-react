@@ -15,7 +15,7 @@ export default function MomentumFooter() {
                     <Link target="_blank" href="https://www.twitter.com/ourmomentummag"><TwitterIcon style={{marginLeft:'0.3em', color:'#9c9c9c'}}/></Link>
                     <Link target="_blank" href="https://www.linkedin.com/company/momentummagazine/"><LinkedInIcon style={{marginLeft:'0.3em', color:'#9c9c9c'}}/></Link>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={4} style={{justifyContent: 'flex-end'}}>
                     <Button variant='outlined' style={{marginRight:'1em', color:'#9c9c9c'}} target="_blank" href="#">Follow Us</Button>
                     <Button variant='outlined' style={{marginRight:'1em', color:'#9c9c9c'}} target="_blank" href="#">Our Policies</Button>
                     <Button variant='outlined' style={{marginRight:'1em', backgroundColor:'#51AF9D', color:'white', borderColor:'#51AF9D'}} target="_blank" href="https://www.patreon.com/join/themomentummagazine">Patreon</Button>
