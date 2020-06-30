@@ -11,7 +11,7 @@ export default function FeaturedCard(props) {
 
     return (
         <Grid item xs={10} md={5} xl={3}>
-                <motion.div initial={{scale: 0}} transition={{duration: 0.2}} animate={{scale: shouldExit ? 0 : 1}} onAnimationComplete={(callback) ? callback : ()=>{}} positionTransition style={{height: '100%'}}>
+                <motion.div initial={{scale: 0}} transition={{duration: 0.25}} animate={{scale: shouldExit ? 0 : 1}} onAnimationComplete={(callback) ? callback : ()=>{}} positionTransition={{duration: 0.25}} style={{height: '100%'}}>
                     <div style={{borderRadius: "1.5em", height: '100%', width: "100%", marginBottom: '1em', background: '#ffffff', boxShadow: '-10px 10px 20px #d9d9d9, 10px -10px 20px #ededed'}}>
                         <Grid container style={{}}>
                             <Grid item xs={12}>

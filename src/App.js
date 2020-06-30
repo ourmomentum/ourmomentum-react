@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Landing from './components/home-screen/Landing';
@@ -11,11 +11,9 @@ import Register from './components/register/Register';
 import Contact from './components/contact/Contact';
 import Issues from './components/issues/Issues'
 import Footer from './components/footer/MomentumFooter'
-
-import Cookie from 'universal-cookie'
 import MomentumToolbar from './components/toolbar/MomentumToolbar';
 import UserContext from './utilities/UserContext';
-import { useEffect } from 'react';
+import MeetTheMomentum from './components/meet-the-momentum/MeetTheMomentum'
 import { makeAuthorizedRequest } from './utilities/MomentumRequests';
 
 
@@ -57,6 +55,7 @@ function App() {
           <Route path='/contact' component={Contact} />
           <Route path='/read-momentum' component={Issues} />
           <Route path='/policies' component={Policies} />
+          <Route path='/meet-the-momentum' component={MeetTheMomentum} />
           <Route path = '/' component={Footer} />
           </ThemeProvider>
       </BrowserRouter>

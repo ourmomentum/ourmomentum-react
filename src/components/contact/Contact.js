@@ -19,18 +19,15 @@ export default function Contact(){
           </Grid>
       </Grid>
       */}
-      <Grid container style={{ marginTop:'5em', marginBottom:'6em'}}  xs={12}>
-        <Grid xs={3} style={{marginLeft:'5em', marginRight: '6em'}}>
+      <Grid container style={{marginTop: '5em', display: 'flex', justifyContent: 'center'}}>
+        <Grid item sm={5} style={{display: 'flex', flexDirection: 'column', padding: '0 4em'}}>
           <Typography component="h1" variant="h2" style={{ marginBottom: '0.5em' }}>
           <b>Contact Us</b>
           </Typography>
 
-          <Grid item>
             <EmailIcon fontSize="large" style={{marginRight: '10px'}} color="primary"/>
             <Typography variant="h6" color="primary"><i>contact@ourmomentum.org</i></Typography>
-          </Grid>
 
-          <Grid>
             <Typography variant="subtitle1" style={{marginTop: "1em"}}>
               If you have any questions, comments or feedback, please let us know here! Someone from our team will respond as soon as possible!
             </Typography>
@@ -51,12 +48,11 @@ export default function Contact(){
               <Typography variant="subtitle1">LinkedIn</Typography> <LinkedInIcon  fontSize="default" style={{marginLeft: "5px"}}/>
             </Button>
           </Grid>
-
-        </Grid>
-
-        <Grid xs={7}>
+        <Grid item xs />
+        <Grid xs={12} sm={5}>
               <ContactForm />
         </Grid>
+        <Grid item xs={1} />
 
       </Grid>
 

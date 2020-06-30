@@ -13,7 +13,7 @@ export default function ContactForm(){
       setContactInfo(tempInfo);
   }
   return (
-    <Paper style={{padding: '2.5em', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div style={{padding: '1em 2em 4em 2em', display: 'flex', flexDirection: 'column', alignItems: 'center', borderRadius: '1.5em', boxShadow: '8px 8px 19px #cccccc, -8px -8px 19px #ffffff'}}>
     <Typography component="h1" variant="h4" style={{marginTop: '0.5em', marginBottom:'1'}}>
       Contact Form
     </Typography>
@@ -60,6 +60,6 @@ export default function ContactForm(){
 
 
           </form>
-      </Paper>
+      </div>
   )
 }
