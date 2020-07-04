@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-<<<<<<< HEAD
-import { BrowserRouter, Route } from "react-router-dom";
-import SusansPlayground from './components/susans-playground/SusansPlayground';
-import Landing from './components/Landing';
-import firebase from './components/home-screen/Firebase';
-
-
-=======
 import { BrowserRouter, Route } from 'react-router-dom';
 import Landing from './components/home-screen/Landing';
 import { ThemeProvider } from '@material-ui/core';
@@ -25,6 +17,10 @@ import MeetTheMomentum from './components/meet-the-momentum/MeetTheMomentum'
 import { makeAuthorizedRequest } from './utilities/MomentumRequests';
 
 
+
+
+
+ 
 
 
 function App() {
@@ -51,21 +47,7 @@ function App() {
       }
     }
 });
->>>>>>> 23c4a12ccdec723a858b95895b1d1ca54030bfbe
-
-function App() {
   return (
-<<<<<<< HEAD
-    <BrowserRouter>
-
-      <Route path = "/susans-playground" component = {SusansPlayground}>
-      </Route>
-      <Route exact path = "/" component = {Landing}>
-
-      </Route>
-
-    </BrowserRouter>
-=======
     <UserContext.Provider value={[userInfo, setUserInfo]}>
       <BrowserRouter>
           <ThemeProvider theme={theme}>
@@ -81,8 +63,8 @@ function App() {
           </ThemeProvider>
       </BrowserRouter>
     </UserContext.Provider>
->>>>>>> 23c4a12ccdec723a858b95895b1d1ca54030bfbe
   );
 }
  
 export default App;
+
