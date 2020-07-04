@@ -10,7 +10,6 @@ import { Toolbar } from '@material-ui/core';
 export default function MomentumToolbar() {
     const theme = useTheme();
     const onMobile = useMediaQuery(theme.breakpoints.down('sm'));
-    console.log(onMobile);
     return (
         <React.Fragment>
             {(!onMobile) ? <DesktopToolbar /> : <MobileToolbar />}

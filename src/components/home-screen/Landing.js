@@ -1,14 +1,9 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import HomeScreen from '../home-screen/Homescreen';
 import LoadingScreen from '../loading-screen/LoadingScreen'
 
 export default function Landing() {
-    const [loading, setLoading] = useState(true);
-    useEffect(() => {
-        window.addEventListener('load', () => {
-            setLoading(false);
-        })
-    })
+    const [loading, setLoading] = useState(false);
 
     return (
         (loading) ? <LoadingScreen /> : <HomeScreen />    

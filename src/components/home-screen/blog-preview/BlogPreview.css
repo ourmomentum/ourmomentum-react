@@ -1,0 +1,8 @@
+.prev-next {
+    justify-content: center;
+    cursor: pointer;
+}
+
+.imageDiv {
+    margin-right: 50px;
+}
