@@ -15,6 +15,7 @@ import MomentumToolbar from './components/toolbar/MomentumToolbar';
 import UserContext from './utilities/UserContext';
 import MeetTheMomentum from './components/meet-the-momentum/MeetTheMomentum'
 import { makeAuthorizedRequest } from './utilities/MomentumRequests';
+import User from './components/user/User';
 
 
 
@@ -56,6 +57,7 @@ function App() {
           <Route path='/read-momentum' component={Issues} />
           <Route path='/policies' component={Policies} />
           <Route path='/meet-the-momentum' component={MeetTheMomentum} />
+          <Route path='/user' component={User} />
           <Route path = '/' component={Footer} />
           </ThemeProvider>
       </BrowserRouter>

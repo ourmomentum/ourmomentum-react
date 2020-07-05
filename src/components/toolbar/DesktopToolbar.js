@@ -57,7 +57,7 @@ export default function DesktopToolbar() {
                                                 <Link><Typography variant='button'>My Submissions</Typography></Link>
                                             </MenuItem>
                                             <MenuItem>
-                                                <Link><Typography variant='button'>User Details</Typography></Link>
+                                                <Link to='/user'><Typography variant='button'>User Details</Typography></Link>
                                             </MenuItem>
                                             <MenuItem onClick={logOut}>
                                                 <Link><Typography variant='button'>Log Out</Typography></Link>

@@ -1,0 +1,14 @@
+[
+    {"name": "Writer",
+    "identifier": 1},
+    {"name": "Editor",
+    "identifier": 2},
+    {"name": "Web Developer",
+    "identifier": 3},
+    {"name": "Layout Manager",
+    "identifier": 4},
+    {"name": "Social Media Manager",
+    "identifier": 5},
+    {"name": "Web Developer",
+    "identifier": 6}
+]

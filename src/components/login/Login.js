@@ -43,7 +43,7 @@ export default function Login() {
     const handleSignInWithRemember = () => {
         setLoginState(LOGIN_WAITING)
         if (signInInfo.username && signInInfo.username.length >= 8 && signInInfo.username.length < 40 && signInInfo.password && signInInfo.password.length >= 8 && signInInfo.password.length < 32) {
-            axios.post(BACKEND_URL + '/login', signInInfo, {withCredentials: true})
+            axios.post(BACKEND_URL + '/login', {...signInInfo, rememberme: true}, {withCredentials: true})
             .then((res)=>{
                 if (res && res.data) {
                     setUserInfo({loggedIn: true, user: {username: res.data.username}});
