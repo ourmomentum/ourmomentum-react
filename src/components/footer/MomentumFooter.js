@@ -16,7 +16,7 @@ export default function MomentumFooter() {
                 <Grid item xs={4}>
                     <Typography style={{fontSize:'1.05em', color:'#9c9c9c'}}>© 2020 Momentum Magazine</Typography>
                     <a target="_blank" href="https://www.instagram.com/momentumagazine"><InstagramIcon style={{marginLeft:'0.6em', color:'#9c9c9c'}}/></a>
-                    <a target="_blank" href="https://www.twitter.com/ourmomentummag"><TwitterIcon style={{marginLeft:'0.3em', color:'#9c9c9c'}}/></a>
+                    <a target="_blank" href="https://www.twitter.com/ourmomentumag"><TwitterIcon style={{marginLeft:'0.3em', color:'#9c9c9c'}}/></a>
                     <a target="_blank" href="https://www.linkedin.com/company/momentummagazine/"><LinkedInIcon style={{marginLeft:'0.3em', color:'#9c9c9c'}}/></a>
                     <Link to="/login"><PermIdentityIcon style={{marginLeft:'0.3em', color:'#9c9c9c'}}/></Link>
                 </Grid>
