@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import posts from './testposts'
-import { Paper, Grid, Typography } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 
 import BlogPreview from './blog-preview/BlogPreview'
 import { useTheme } from '@material-ui/core/styles';
@@ -16,9 +16,9 @@ export default function FeaturedArticles() {
                     <Typography variant='h3' style={{fontWeight:'bold', letterSpacing: '0.25em'}}>FEATURED ARTICLES</Typography>
                 </Grid>
             </Grid>
-                <Grid container style={{width: '100%', marginTop: '2.5vh'}}>
-                    <BlogPreview margin = '2em' posts={posts}/>
-                </Grid>
+            <Grid container style={{width: '100%', marginTop: '2.5vh'}}>
+                <BlogPreview margin = '2em' posts={posts}/>
+            </Grid>
         </div>
     )
 }
