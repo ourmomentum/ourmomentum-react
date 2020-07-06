@@ -64,7 +64,7 @@ export const makeAuthorizedRequest = (path, payload, options={}) => {
                 resolve(res)
             })
             .catch(err => {
-                if (err.response.status == 401) {
+                if (err.response && err.response.status == 401) {
                     getNewToken.then(()=>{
                         headers.Authorization = 'Bearer ' + creds.accessToken;
                         axios.post(BACKEND_URL + path, payload, {withCredentials: true, headers})

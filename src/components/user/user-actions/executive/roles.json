@@ -1,4 +1,6 @@
-[
+[    
+    {"name": "Executive",
+    "identifier": 0},
     {"name": "Writer",
     "identifier": 1},
     {"name": "Editor",
