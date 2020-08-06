@@ -16,6 +16,7 @@ import UserContext from './utilities/UserContext';
 import MeetTheMomentum from './components/meet-the-momentum/MeetTheMomentum'
 import { makeAuthorizedRequest } from './utilities/MomentumRequests';
 import User from './components/user/User';
+import Team from './components/team/Team'
 
 
 
@@ -64,5 +65,5 @@ function App() {
     </UserContext.Provider>
   );
 }
- 
+
 export default App;
