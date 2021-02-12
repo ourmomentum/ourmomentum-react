@@ -6,7 +6,7 @@ import axios from 'axios'
 import { BACKEND_URL } from '../../constants/urls'
 import { makeAuthorizedRequest, setCreds } from '../../utilities/MomentumRequests'
 import { useHistory } from 'react-router-dom'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import UserContext from '../../utilities/UserContext'
 
 const LOGIN_STATE_NONE = 0, LOGIN_WAITING = 1, LOGIN_FAILED = 2;
@@ -32,7 +32,7 @@ export default function Login() {
         console.log('State :' + state);
     }
 
-    connect(mapStateToProps)(a => console.log(a));
+    // connect(mapStateToProps)(a => console.log(a));
 
     const handleFieldChange = (e) => {
         let tempInfo = signInInfo;

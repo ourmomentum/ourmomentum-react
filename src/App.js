@@ -53,11 +53,12 @@ function App() {
           <Route path = '/' component={MomentumToolbar} />
           <Route exact path = '/' component={Landing} />
           <Route path='/login' component={Login} />
+          <Route path='/team' component={Team} />
           <Route path='/register' component={Register} />
           <Route path='/contact' component={Contact} />
           <Route path='/read-momentum' component={Issues} />
           <Route path='/policies' component={Policies} />
-          <Route path='/meet-the-momentum' component={MeetTheMomentum} />
+          {/*<Route path='/meet-the-momentum' component={MeetTheMomentum} />*/}
           <Route path='/user' component={User} />
           <Route path = '/' component={Footer} />
           </ThemeProvider>
