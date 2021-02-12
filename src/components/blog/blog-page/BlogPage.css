@@ -1,0 +1,5 @@
+.blog-container-center {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em !important;
+}

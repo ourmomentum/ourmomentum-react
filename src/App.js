@@ -16,6 +16,9 @@ import UserContext from './utilities/UserContext';
 import MeetTheMomentum from './components/meet-the-momentum/MeetTheMomentum'
 import { makeAuthorizedRequest } from './utilities/MomentumRequests';
 import User from './components/user/User';
+import Brightside from './components/blog/blog-pages.old/Brightside';
+import BlogPage from './components/blog/blog-page/BlogPage';
+import BlogPostContainer from './components/blog/blog-page/test';
 
 
 
@@ -58,6 +61,8 @@ function App() {
           <Route path='/policies' component={Policies} />
           <Route path='/meet-the-momentum' component={MeetTheMomentum} />
           <Route path='/user' component={User} />
+          <Route path='/test' component={Brightside} />
+          <Route path='/test2' component={BlogPostContainer} />
           <Route path = '/' component={Footer} />
           </ThemeProvider>
       </BrowserRouter>
