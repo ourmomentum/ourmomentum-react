@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { BACKEND_URL } from '../../constants/urls';
 
+const REGISTER_USER_URL = BACKEND_URL + '/api/user/signup'
 
 export default function Login() {
     const [signUpInfo, setSignUpInfo] = useState({});
@@ -18,8 +19,8 @@ export default function Login() {
 
 
     const handleSignUp = () => {
-        if (signUpInfo.username.length >= 8 && signUpInfo.username.length < 40 && signUpInfo.password.length >= 8 && signUpInfo.password.length < 32) {
-            axios.post(BACKEND_URL + '/register', signUpInfo).then((res)=>console.log('We did it!')).catch((err)=>console.log('Uh oh ' + err));
+        if (signUpInfo.email && signUpInfo.email.length >= 8 && signUpInfo.email.length < 40 && signUpInfo.password && signUpInfo.password.length >= 8 && signUpInfo.password.length < 32) {
+            axios.post(REGISTER_USER_URL, signUpInfo).then((res)=>console.log('We did it!')).catch((err)=>console.log('Uh oh ' + err));
         } else {
             console.log(signUpInfo);
         }
@@ -36,19 +37,17 @@ export default function Login() {
                 </Typography>
                 <form noValidate>
                     <Grid container spacing={2}>
-                        <Grid item xs={12} md={6}> 
+                    <Grid item xs={12} md={6}> 
 						 <TextField
                             variant="outlined"
                             margin="normal"
                             required
                             fullWidth
-                            label="Full Name"
-                            name="name"
-                            autoFocus
+                            name="user_name"
+                            label="First Name"
                             onChange={handleFieldChange}
                         />
-                        </Grid>           
-
+                        </Grid>
                         <Grid item xs={12} md={6}> 
 						 <TextField
                             variant="outlined"
@@ -66,20 +65,6 @@ export default function Login() {
                             margin="normal"
                             required
                             fullWidth
-                            label="Username"
-                            name="username"
-                            autoComplete="momentum_user"
-                            autoFocus
-                            onChange={handleFieldChange}
-                        />
-                        </Grid>
-
-                        <Grid item xs={12} md={6}> 
-						 <TextField
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
                             name="password"
                             label="Password"
                             type="password"
@@ -88,7 +73,7 @@ export default function Login() {
                             onChange={handleFieldChange}
                         />
                         </Grid>
-                        <Grid item xs={12}> 
+                        <Grid item xs={12} md={6}> 
 						 <TextField
                             variant="outlined"
                             margin="normal"

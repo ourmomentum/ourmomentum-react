@@ -9,7 +9,7 @@ import { useHistory } from 'react-router-dom'
 import UserContext from '../../utilities/UserContext'
 
 const LOGIN_STATE_NONE = 0, LOGIN_WAITING = 1, LOGIN_FAILED = 2;
-
+const LOGIN_URL = BACKEND_URL + '/api/user/login'
 
 
 export default function Login() {
@@ -35,13 +35,14 @@ export default function Login() {
     const handleFieldChange = (e) => {
         let tempInfo = signInInfo;
         tempInfo[e.target.name] = e.target.value;
+        console.log(tempInfo)
         setSignInInfo(tempInfo);
     }
 
     const handleSignInWithRemember = () => {
         setLoginState(LOGIN_WAITING)
-        if (signInInfo.username && signInInfo.username.length >= 8 && signInInfo.username.length < 40 && signInInfo.password && signInInfo.password.length >= 8 && signInInfo.password.length < 32) {
-            axios.post(BACKEND_URL + '/login', {...signInInfo, rememberme: true}, {withCredentials: true})
+        if (signInInfo.email && signInInfo.email.length >= 8 && signInInfo.email.length < 40 && signInInfo.password && signInInfo.password.length >= 8 && signInInfo.password.length < 32) {
+            axios.post(LOGIN_URL, {...signInInfo, rememberme: true}, {withCredentials: true})
             .then((res)=>{
                 if (res && res.data) {
                     setUserInfo({loggedIn: true, user: {username: res.data.username}});
@@ -66,8 +67,8 @@ export default function Login() {
 
     const handleSignInNoRemember = () => {
         setLoginState(LOGIN_WAITING)
-        if (signInInfo.username && signInInfo.username.length >= 8 && signInInfo.username.length < 40 && signInInfo.password && signInInfo.password.length >= 8 && signInInfo.password.length < 32) {
-            axios.post(BACKEND_URL + '/login', signInInfo, {withCredentials: true})
+        if (signInInfo.email && signInInfo.email.length >= 8 && signInInfo.email.length < 40 && signInInfo.password && signInInfo.password.length >= 8 && signInInfo.password.length < 32) {
+            axios.post(LOGIN_URL, signInInfo, {withCredentials: true})
             .then((res)=>{
                 if (res && res.data) {
                     setCreds(res.data.creds);
@@ -80,9 +81,12 @@ export default function Login() {
 
             })
             .catch((err)=>{
-                if (err.response && err.response.status === 401 || err.response.status === 400) {
+                if (err.response && err.response.status && (err.response.status === 401 || err.response.status === 400)) {
                     setLoginState(LOGIN_FAILED);
                     setErrorText('Incorrect username or password.');
+                } else {
+                    setLoginState(LOGIN_FAILED);
+                    setErrorText('An unknown error occured.');
                 }
             });
         } else {
@@ -109,8 +113,8 @@ export default function Login() {
                     margin="normal"
                     required
                     fullWidth
-                    label="Username"
-                    name="username"
+                    label="Email"
+                    name="email"
                     autoComplete="momentum_user"
                     autoFocus
                     onChange={handleFieldChange}

@@ -8,14 +8,14 @@ export default function NewUser() {
     const [userDetails, setUserDetails] = useState({});
     const [showSuccess, setShowSuccess] = useState(false);
     const [showFailure, setShowFailure] = useState(false);
-
+    const REGISTER_USER_URL = '/api/user/signup'
 
     const handleFormChange = (e) => {
         setUserDetails({...userDetails, [e.target.name]: e.target.value});
     }
 
     const handleFormSumbit = () => {
-        makeAuthorizedRequest('/authorized/register', userDetails).then(() => setShowSuccess(true)).catch(() => setShowFailure(true));
+        makeAuthorizedRequest(REGISTER_USER_URL, userDetails).then(() => setShowSuccess(true)).catch(() => setShowFailure(true));
     }
     return (
             <Grid container spacing={5}>
