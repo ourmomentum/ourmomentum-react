@@ -65,7 +65,7 @@ export const makeAuthorizedRequest = (path, payload, options={}) => {
             })
             .catch(err => {
                 if (err.response && err.response.status == 401) {
-                    getNewToken.then(()=>{
+                    getNewToken().then(()=>{
                         headers.Authorization = 'Bearer ' + creds.accessToken;
                         axios.post(BACKEND_URL + path, payload, {withCredentials: true, headers})
                         .then((res)=>{
@@ -76,7 +76,7 @@ export const makeAuthorizedRequest = (path, payload, options={}) => {
                         })
                     })
                     .catch(err => {
-                        if (err.reponse.status == 401) {
+                        if (err.response && err.response.status == 401) {
                             if (options.history) {
                                 options.history.push('/login');
                             }

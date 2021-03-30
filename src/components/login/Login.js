@@ -45,7 +45,7 @@ export default function Login() {
             axios.post(LOGIN_URL, {...signInInfo, rememberme: true}, {withCredentials: true})
             .then((res)=>{
                 if (res && res.data) {
-                    setUserInfo({loggedIn: true, user: {username: res.data.username}});
+                    setUserInfo({loggedIn: true, user: {username: res.data.name}});
                     history.push('/')
                 } else {
                     setLoginState(LOGIN_FAILED);
@@ -72,7 +72,7 @@ export default function Login() {
             .then((res)=>{
                 if (res && res.data) {
                     setCreds(res.data.creds);
-                    setUserInfo({loggedIn: true, user: {username: res.data.username}});
+                    setUserInfo({loggedIn: true, user: {username: res.data.name}});
                     history.push('/')
                 } else {
                     setLoginState(LOGIN_FAILED);

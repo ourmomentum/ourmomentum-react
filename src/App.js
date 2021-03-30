@@ -19,6 +19,7 @@ import User from './components/user/User';
 import Brightside from './components/blog/blog-pages.old/Brightside';
 import BlogPage from './components/blog/blog-page/BlogPage';
 import BlogPostContainer from './components/blog/blog-page/test';
+import PostArticle from './components/post-article/PostArticle';
 
 
 
@@ -63,6 +64,7 @@ function App() {
           <Route path='/user' component={User} />
           <Route path='/test' component={Brightside} />
           <Route path='/test2' component={BlogPostContainer} />
+          <Route path='/post-article' component={PostArticle}/>
           <Route path = '/' component={Footer} />
           </ThemeProvider>
       </BrowserRouter>
