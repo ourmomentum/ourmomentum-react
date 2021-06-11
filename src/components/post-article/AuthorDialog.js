@@ -1,53 +1,72 @@
 import React, { useState } from 'react'
-import { Dialog, DialogTitle, Table, TableHead, TableRow, TableCell, TableContainer, TableBody, Paper, Button, IconButton, Icon, TextField, Grid } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
+import {
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    Table,
+    Thead,
+    Tbody,
+    Tfoot,
+    Tr,
+    Th,
+    Td,
+    TableCaption, Button, Input, IconButton, Select,
+} from "@chakra-ui/react"
+import { Contributor } from "./contributor";
+import { AddIcon } from '@chakra-ui/icons'
+import {TableBody} from "@material-ui/core";
+
 
 export default function AuthorDialog(props) {
-    let {open, onClose, authors, addAuthor, removeAuthor} = props;
+    let {open, onClose, contributors, addContributor, removeContributor} = props;
 
-    const [newAuthor, setNewAuthor] = useState('');
+    const [newContributor, setNewContributor] = useState('');
 
     const addNewAuthor = () => {
-        if (newAuthor && newAuthor != '') {
-            addAuthor(newAuthor);
+        if (newContributor && newContributor != '') {
+            addContributor(newContributor);
+            setNewContributor('');
         }
     }
     return (
-        <Dialog open={open} onClose={onClose}>
-            <DialogTitle>View Authors</DialogTitle>
-            <TableContainer component={Paper}>
+        <Modal isOpen={open} onClose={onClose}>
+            <ModalOverlay />
+            <ModalContent>
+            <ModalHeader>View Authors <ModalCloseButton /></ModalHeader>
                 <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Name</TableCell>
-                            <TableCell>Remove</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {authors.map((author) => (
-                            <TableRow key={author}>
-                                <TableCell>
-                                    {author}
-                                </TableCell>
-                                <TableCell>
-                                    <Button color='secondary' onClick={removeAuthor.bind(this, author)}>Remove</Button>
-                                </TableCell>
-                            </TableRow>
+                    <Thead>
+                        <Tr>
+                            <Td>Name</Td>
+                            <Td>Role</Td>
+                            <Td>Remove</Td>
+                        </Tr>
+                    </Thead>
+                    <Tbody>
+                        {contributors.map((contributor) => (
+                            <Tr key={contributor.name}>
+                                <Td>
+                                    {contributor.name}
+                                </Td>
+                                <Td>
+                                    <Select onChange={e=>e.target.value === "AUTHOR" ? contributor.setAuthor() : contributor.setEditor()} defaultValue={contributor.role}>
+                                        <option value={'AUTHOR'}>Author</option>
+                                        <option value={'EDITOR'}>Editor</option>
+                                    </Select>
+                                </Td>
+                                <Td>
+                                    <Button color='secondary' onClick={removeContributor.bind(this, contributor)}>Remove</Button>
+                                </Td>
+                            </Tr>
                         ))}
-                    </TableBody>
+                    </Tbody>
                 </Table>
-                <Grid container style={{padding: '1em 2em'}}>
-                    <Grid item xs={9}>
-                        <TextField placeholder="New Author" onChange={e=>setNewAuthor(e.target.value)}></TextField>
-                    </Grid>
-                    <Grid item xs />
-                    <Grid item xs={2}>
-                        <IconButton style={{float: 'right'}} onClick={addNewAuthor}><Icon><AddIcon /></Icon></IconButton>
-                    </Grid>
-
-                </Grid>
-
-            </TableContainer>
-        </Dialog>
+                <Input placeholder="New Author" onChange={e=>setNewContributor(new Contributor(e.target.value))} value={newContributor.name ? newContributor.name : ''}></Input>
+                <IconButton style={{float: 'right'}} onClick={addNewAuthor}><AddIcon /></IconButton>
+            </ModalContent>
+        </Modal>
     )
 }

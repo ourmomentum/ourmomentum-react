@@ -7,6 +7,7 @@ import PeopleIcon from '@material-ui/icons/People'
 import LoginIcon from '@material-ui/icons/VpnKey'
 import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 import { Link } from 'react-router-dom'
+import {Image} from "@chakra-ui/react";
 export default function MobileToolbar() {
 
     const [drawerOpen, setDrawerOpen] = useState(false);
@@ -18,7 +19,7 @@ export default function MobileToolbar() {
                             <IconButton edge="start" onClick={()=>{setDrawerOpen(true)}}>
                                 <MenuIcon />
                             </IconButton>
-                            <img src="logo_with_text.png" height={'56px'} style={{margin: 'auto'}} alt="Mom"/>
+                            <Image src="logo_with_text.png" h={'56px'} style={{margin: 'auto'}} alt="Mom"/>
                 </Toolbar>
             </AppBar>
             <Drawer anchor='left' open={drawerOpen} onClose={()=>setDrawerOpen(false)}>

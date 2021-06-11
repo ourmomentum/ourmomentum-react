@@ -1,49 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import { Grid, useMediaQuery } from '@material-ui/core';
 import { makeStyles, useTheme} from '@material-ui/core/styles'
-import { AnimatePresence } from 'framer-motion';
+import {AnimatePresence, AnimateSharedLayout} from 'framer-motion';
+import {Button, SimpleGrid} from "@chakra-ui/react";
+
 
 export default function CardsContainer(props) {
     const cardNum = props.cardNum
+    const [prevNum, setPrevNum] = useState(props.cardNum);
     const [cards, setCards] = useState([]);
     const theme = useTheme();
     const [maxCards, setMaxCards] = useState(1);
     const threeCards = useMediaQuery(theme.breakpoints.up('xl'));
     const twoCards = useMediaQuery(theme.breakpoints.up('md'));
-    const [prevCard, setPrevCard] = useState(props.cardNum);
-
-    const changeCards = (currentCards) => {
-        let currentCard = cardNum;
-        if (props.children.length > 2){
-            const cardsOrdered = [];
-            for (let i = 0; i < maxCards; i++) {
-                if (currentCard + i >= props.children.length) {
-                    currentCard = -i;
-                }
-                cardsOrdered.push(props.children[currentCard + i]())
-                cardsOrdered.push(<Grid key={'g' + i} item xs />)
-            }
-            setCards(cardsOrdered);
-        } else {
-            return 'Too little articles for card layout';
-        }
-    }
-
-    const layOutCards = () => {
-        let tempCards = [...cards];
-        if (cardNum === prevCard + 1 || (cardNum < prevCard && cardNum != prevCard - 1)) {
-            console.log(Number(cards[0].key))
-            tempCards[0] = props.children[Number(cards[0].key)](true, changeCards.bind(this, tempCards));
-            setCards(tempCards);
-        } else if (cardNum === prevCard - 1  || (cardNum > prevCard && cardNum != prevCard + 1)) {
-            tempCards[(maxCards - 1) * 2] = props.children[Number(tempCards[(maxCards - 1) * 2].key)](true, changeCards.bind(this, tempCards));
-            setCards(tempCards);
-        } else {
-            changeCards(tempCards);
-        }
-        console.log(tempCards)
-        setPrevCard(cardNum);
-    }
 
     useEffect(()=>{
         if (threeCards) {
@@ -56,24 +25,24 @@ export default function CardsContainer(props) {
    
     }, [threeCards, twoCards]);
 
+    useEffect(() => {
+        const lenCards = props.children.length;
+        const changedCards = [];
+        for (let i = 0; i < maxCards; i++) {
+            if (cardNum + i < lenCards) {
+                changedCards.push(props.children[cardNum + i]);
+            } else {
+                changedCards.push(props.children[cardNum + i - lenCards]);
+            }
 
-
-    const useStyles = makeStyles({
-        card: {
-            height: '100%'
         }
-    })
-
-    useEffect(()=> {
-        layOutCards();
-    }, [cardNum, maxCards])
+        setCards(changedCards);
+    }, [props.children, props.cardNum])
 
 
     return (
-        <Grid container>
-            <Grid item xs />
-                    {cards}
-            <Grid item xs />
-        </Grid>
+        <SimpleGrid columns={[1, 1, 2, 3]} spacing={16}>
+                {cards}
+        </SimpleGrid>
     )
 }

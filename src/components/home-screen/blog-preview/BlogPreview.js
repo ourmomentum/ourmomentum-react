@@ -1,10 +1,11 @@
-import { Grid, Grow, Icon } from '@material-ui/core';
 import React, { useEffect, useState, useRef } from 'react';
 import './BlogPreview.css';
-import FeaturedCard from './FeaturedCard';
+import PreviewCard from '../../cards/PreviewCard';
 import CardsContainer from './CardsContainer';
-import NextIcon from '@material-ui/icons/NavigateNext'
-import PreviousIcon from '@material-ui/icons/NavigateBefore'
+import { ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
+import { motion } from 'framer-motion';
+import {Box, Center, IconButton, Stack} from "@chakra-ui/react";
+import {Icon} from "@chakra-ui/icons";
 
 export default function BlogPreview(props) {
     const [actualPage, setActualPage] = useState(0);
@@ -27,20 +28,18 @@ export default function BlogPreview(props) {
 
 
     return (
-        <React.Fragment>
-            <Grid item xs={1} className='prev-next'>
-                <Icon style={{width: '50%', height: 'auto'}} onClick={decrementPage}><PreviousIcon style={{width: '100%', height: 'auto'}}/></Icon>
-            </Grid>
-            <Grid item xs={10} style={{marginTop: props.margin}}>
-                <Grid container>
-                        <CardsContainer cardNum={actualPage}>
-                            {props.posts.map((el, i) => (shouldExit, callback) => <FeaturedCard post={el} key={i} shouldExit = {shouldExit} callback={callback}> Hello world!</FeaturedCard>)}
-                        </CardsContainer>
-                </Grid>
-            </Grid>
-            <Grid item xs={1} className='prev-next'>
-                <Icon style={{width: '50%', height: 'auto'}} onClick={incrementPage}><NextIcon style={{width: '100%', height: 'auto'}}/></Icon>
-            </Grid>
-        </React.Fragment>
+        <Stack w={'100%'} direction={'row'} align={'center'} p={8} spacing={8}>
+                <Center w={'10%'}>
+                    <IconButton aria-label={'previos-featured-post'} icon={<ArrowLeftIcon />} onClick={decrementPage} size={'lg'} />
+                </Center>
+                <Box w={'80%'}>
+                    <CardsContainer cardNum={actualPage}>
+                        {props.posts.map((el, i) => <motion.div key={i} layout><PreviewCard post={el}/></motion.div>)}
+                    </CardsContainer>
+                </Box>
+                <Center w={'10%'}>
+                    <IconButton aria-label={'previos-featured-post'} icon={<ArrowRightIcon />} onClick={incrementPage} size={'lg'}/>
+                </Center>
+        </Stack>
     )
 }

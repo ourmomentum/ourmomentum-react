@@ -3,7 +3,7 @@ import { Paper, Avatar, Typography, TextField, FormControlLabel, Button, Grid, C
 import { useTheme } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { BACKEND_URL } from '../../constants/urls';
+import { BACKEND_URL } from '../../constants/backend_info';
 
 const REGISTER_USER_URL = BACKEND_URL + '/api/user/signup'
 

@@ -3,8 +3,8 @@ import { Paper, Avatar, Typography, TextField, FormControlLabel, Button, Grid, C
 import { useTheme } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { BACKEND_URL } from '../../constants/urls'
-import { makeAuthorizedRequest, setCreds } from '../../utilities/MomentumRequests'
+import { BACKEND_URL } from '../../constants/backend_info'
+import { makeAuthorizedRequest, setCreds } from '../../utilities/MomentumRequestsOld'
 import { useHistory } from 'react-router-dom'
 import UserContext from '../../utilities/UserContext'
 

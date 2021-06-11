@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { AppBar, Toolbar,  Typography, Grid, Menu, MenuItem } from '@material-ui/core'
 import { Link } from "react-router-dom"
 import UserContext from '../../utilities/UserContext';
-import { makeAuthorizedRequest, deleteCreds } from '../../utilities/MomentumRequests';
+import { makeAuthorizedRequest, deleteCreds } from '../../utilities/MomentumRequestsOld';
 export default function DesktopToolbar() {
     const [userMenu, setUserMenu] = useState();
     const [userInfo, setUserInfo] = useContext(UserContext);
@@ -41,7 +41,7 @@ export default function DesktopToolbar() {
                         </Grid>
                         <Grid item sm />
                         <Grid item sm={10} md={6} lg={5} xl={4} style={{display: "flex", justifyContent: "space-between"}}>
-                                <Link to="/"><Typography variant="button">Blog</Typography></Link>      
+                                <Link to="/blog"><Typography variant="button">Blog</Typography></Link>
                                     
                                 <Link to="/read-momentum"><Typography variant="button">Read Momentum</Typography></Link>      
                                     

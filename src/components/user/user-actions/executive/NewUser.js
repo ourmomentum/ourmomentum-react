@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Grid, TextField, Typography, Select, MenuItem, InputLabel, FormControl, Button, Snackbar, SnackbarContent } from '@material-ui/core'
 import roles from './roles.json'
-import { makeAuthorizedRequest } from '../../../../utilities/MomentumRequests';
+import { makeAuthorizedRequest } from '../../../../utilities/MomentumRequestsOld';
 import { MOMENTUM_SIGNATURE_GREEN, BG_MOMENTUM_RED } from '../../../../constants/colors';
 
 export default function NewUser() {

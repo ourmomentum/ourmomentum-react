@@ -23,7 +23,7 @@ export default function HomeScreen(props) {
 
             </div>
                 <FullScreenBanner height={'calc(100vh - ' + bannerHeight + 'px)'}/>
-                <FeaturedArticles/>
+                    <FeaturedArticles/>
                 <EditorsNote />
         </div>
     )

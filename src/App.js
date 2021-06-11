@@ -14,19 +14,20 @@ import Footer from './components/footer/MomentumFooter'
 import MomentumToolbar from './components/toolbar/MomentumToolbar';
 import UserContext from './utilities/UserContext';
 import MeetTheMomentum from './components/meet-the-momentum/MeetTheMomentum'
-import { makeAuthorizedRequest } from './utilities/MomentumRequests';
+import { makeAuthorizedRequest } from './utilities/MomentumRequestsOld';
 import User from './components/user/User';
 import Brightside from './components/blog/blog-pages.old/Brightside';
 import BlogPage from './components/blog/blog-page/BlogPage';
-import BlogPostContainer from './components/blog/blog-page/test';
+import BlogPostContainer from './components/blog/blog-page/BlogPostContainer';
 import PostArticle from './components/post-article/PostArticle';
-
+import Blog from "./components/blog/Blog";
+import { ChakraProvider } from "@chakra-ui/react"
 
 
 
 function App() {
   const [userInfo, setUserInfo] = useState({});
-
+/*
   useEffect(() => {
     makeAuthorizedRequest('/authorized/check')
     .then((res) => {
@@ -36,7 +37,7 @@ function App() {
       }
     })
   }, [])
-
+*/
   const theme = createMuiTheme({
     palette: {
       primary: {
@@ -50,25 +51,27 @@ function App() {
 });
 
   return (
-    <UserContext.Provider value={[userInfo, setUserInfo]}>
-      <BrowserRouter>
-          <ThemeProvider theme={theme}>
-          <Route path = '/' component={MomentumToolbar} />
-          <Route exact path = '/' component={Landing} />
-          <Route path='/login' component={Login} />
-          <Route path='/register' component={Register} />
-          <Route path='/contact' component={Contact} />
-          <Route path='/read-momentum' component={Issues} />
-          <Route path='/policies' component={Policies} />
-          <Route path='/meet-the-momentum' component={MeetTheMomentum} />
-          <Route path='/user' component={User} />
-          <Route path='/test' component={Brightside} />
-          <Route path='/test2' component={BlogPostContainer} />
-          <Route path='/post-article' component={PostArticle}/>
-          <Route path = '/' component={Footer} />
-          </ThemeProvider>
-      </BrowserRouter>
-    </UserContext.Provider>
+      <ChakraProvider>
+            <UserContext.Provider value={[userInfo, setUserInfo]}>
+              <BrowserRouter>
+                  <ThemeProvider theme={theme}>
+                  <Route path = '/' component={MomentumToolbar} />
+                  <Route exact path = '/' component={Landing} />
+                  <Route path='/login' component={Login} />
+                  <Route path='/register' component={Register} />
+                  <Route path='/contact' component={Contact} />
+                  <Route path='/read-momentum' component={Issues} />
+                  <Route path='/policies' component={Policies} />
+                  <Route path='/meet-the-momentum' component={MeetTheMomentum} />
+                  <Route path='/user' component={User} />
+                  <Route path='/blog' component={Blog} />
+                  <Route path='/post/:id' component={BlogPostContainer} />
+                  <Route path='/post-article' component={PostArticle}/>
+                  <Route path = '/' component={Footer} />
+                  </ThemeProvider>
+              </BrowserRouter>
+            </UserContext.Provider>
+      </ChakraProvider>
   );
 }
  

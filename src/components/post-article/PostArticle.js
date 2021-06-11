@@ -1,60 +1,37 @@
-import React, { useState } from 'react'
-import { Grid, Typography, TextField, Button} from '@material-ui/core'
-import { makeAuthorizedRequest } from '../../utilities/MomentumRequests';
-import AuthorDialog from './AuthorDialog';
+import React, {useEffect, useState} from 'react';
+import LoginForm from "./LoginForm";
+import ArticleForm from "./ArticleForm";
+import {Flex, Stack} from "@chakra-ui/react";
+import Cookies from 'universal-cookie'
+import {isLoggedIn} from "../../utilities/MomentumRequests";
+import {BACKEND_URL} from "../../constants/backend_info";
 
-export default function PostArticle() {
+function PostArticle(props) {
+    const [loggedIn, setLoggedIn] = useState(false);
+    const cookies = new Cookies();
 
-    const [postContent, setPostContent] = useState({authors: 'Test', thumbnailImage: 'Test'});
-    const [authors, setAuthors] = useState([]);
-    const [showAuthorDialog, setShowAuthorDialog] = useState(false);
-
-    const onInputFieldChange = (e) => {
-        setPostContent({...postContent, [e.target.name]: e.target.value});
+    const verifyLoggedIn = () => {
+        isLoggedIn()
+            .then(() => setLoggedIn(true))
+            .catch(() => setLoggedIn(false));
     }
 
-    const submitPost = () => {
-        console.log({...postContent, authors: authors.join()})
-        makeAuthorizedRequest('/api/inProgressBlog/create', {...postContent, authors: authors.join()});
+    const onSuccess = (e) => {
+        cookies.set("googleToken", e.tokenId, {path: '/', httpOnly: process.env.NODE_ENV === 'production', domain: process.env.NODE_ENV === 'production' ? BACKEND_URL : ""});
+        verifyLoggedIn();
     }
 
-    const addAuthor = (author) => {
-        setAuthors([...authors, author]);
-    }
-
-    const removeAuthor = (removedAuthor) => {
-        setAuthors(authors.filter((author) => author != removedAuthor));
-    }
+    useEffect(() => {
+        verifyLoggedIn();
+    }, [])
 
     return (
-        <React.Fragment>
-            <Grid style={{width: '100%', marginTop: '2em'}} container>
-                <Grid item xs={12} className='flex-center'>
-                    <Typography variant='h2'>Create Blog Post</Typography>
-                </Grid>
-            </Grid>
-
-
-
-
-            <Grid container style={{marginTop: '2em'}}>
-                <Grid item xs />
-                <Grid item xs={12} md={8} lg={6} style={{display: 'flex', flexDirection: 'column'}}>
-                    <TextField placeholder="Title" fullWidth style={{textAlign: 'center'}} inputProps={{style: {textAlign: 'center', fontWeight: 600, fontSize: '1.5em'}}} name='title' onChange={onInputFieldChange}/>
-                    <TextField placeholder="Enter Markdown Text" variant='outlined' multiline fullWidth style={{marginTop: '1em'}} name='body' onChange={onInputFieldChange}/>
-            
-                </Grid>
-                <Grid item xs />
-            </Grid>
-
-            <Grid container style={{marginTop: '1em'}}>
-                <Grid item xs={12} className='flex-center'>
-                    <Button onClick={() => setShowAuthorDialog(true)}variant='contained' color='secondary' style={{marginRight: '2em'}}>Edit Authors</Button>
-                    <Button onClick={submitPost} variant='contained' color='primary'>Submit</Button>
-                </Grid>
-            </Grid>
-
-            <AuthorDialog open={showAuthorDialog} onClose={() => setShowAuthorDialog(false)} authors={authors} addAuthor={addAuthor} removeAuthor={removeAuthor} />
-        </React.Fragment>
-    )
+        <Flex w={'100%'} justify={'center'} p={[4, 4, 8, 16]}>
+            <Stack w={['100%', '100%', '85%', '75%', '40%']} justify={'center'}>
+                {!loggedIn ? <LoginForm onSuccess={onSuccess} /> : <ArticleForm onLogOut={verifyLoggedIn} />}
+            </Stack>
+        </Flex>
+    );
 }
+
+export default PostArticle;
