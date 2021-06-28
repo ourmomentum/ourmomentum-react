@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Grid, useMediaQuery } from '@material-ui/core';
+import { useMediaQuery } from '@chakra-ui/react';
 import { makeStyles, useTheme} from '@material-ui/core/styles'
 import {AnimatePresence, AnimateSharedLayout} from 'framer-motion';
 import {Button, SimpleGrid} from "@chakra-ui/react";
@@ -11,10 +11,10 @@ export default function CardsContainer(props) {
     const [cards, setCards] = useState([]);
     const theme = useTheme();
     const [maxCards, setMaxCards] = useState(1);
-    const threeCards = useMediaQuery(theme.breakpoints.up('xl'));
-    const twoCards = useMediaQuery(theme.breakpoints.up('md'));
+    let [twoCards, threeCards] = useMediaQuery(["(min-width: 48em)", "(min-width: 80em)"]);
 
-    useEffect(()=>{
+
+    useEffect(() => {
         if (threeCards) {
             setMaxCards(3);
         } else if (twoCards) {
@@ -37,11 +37,11 @@ export default function CardsContainer(props) {
 
         }
         setCards(changedCards);
-    }, [props.children, props.cardNum])
+    }, [props.children, props.cardNum, maxCards])
 
 
     return (
-        <SimpleGrid columns={[1, 1, 2, 3]} spacing={16}>
+        <SimpleGrid columns={[1, 1, 2, 2, 3]} spacing={16}>
                 {cards}
         </SimpleGrid>
     )

@@ -3,11 +3,23 @@ import React, {useEffect, useState} from 'react';
 import MomentumFooter from '../footer/MomentumFooter';
 import { useTheme } from '@material-ui/core/styles';
 import { BrowserRouter, Route } from 'react-router-dom';
-import {SimpleGrid, Box, Flex, Heading, Stack, Spacer, Center, Button, Alert, AlertIcon} from '@chakra-ui/react'
+import {
+    SimpleGrid,
+    Box,
+    Flex,
+    Heading,
+    Stack,
+    Spacer,
+    Center,
+    Button,
+    Alert,
+    AlertIcon,
+    Divider
+} from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import axios from "axios";
 import {BACKEND_URL} from "../../constants/backend_info";
-import {MOMENTUM_SIGNATURE_GREEN} from "../../constants/colors";
+import {MOMENTUM_MED_GREEN, MOMENTUM_SIGNATURE_GREEN} from "../../constants/colors";
 import PreviewCard from "../cards/PreviewCard";
 
 export default function Blog(){
@@ -37,9 +49,10 @@ export default function Blog(){
     }
 
     return(
-        <Stack direction={'column'} width={'100%'} align={'center'} spacing={16} py={16}>
-            <Heading textAlign={'center'}>View Our Latest Blog Posts Here!</Heading>
-            <SimpleGrid columns={[1, 1, 1, 2, 3]} w={'80%'} spacing={16}>
+        <Stack direction={'column'} width={'100%'} align={'center'} spacing={16} p={[8, null, 16]}>
+            <Heading color={MOMENTUM_SIGNATURE_GREEN} size={'3xl'} textAlign={'center'} letterSpacing={8} lineHeight={'1.2em'}>THE MOMENTUM BLOG</Heading>
+            <Divider w={'80%'} />
+            <SimpleGrid columns={[1, 1, 1, 2, 3]} w={['100%']} spacing={16}>
                 {articles.map((e, i) => {
                     return <PreviewCard post={e} key={i} />
                 })}

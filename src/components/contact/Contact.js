@@ -1,61 +1,51 @@
 import React from 'react'
-import { Typography, Button, Grid } from '@material-ui/core'
+import { Typography, Grid } from '@material-ui/core'
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
 import ContactForm from './ContactForm'
-import EmailIcon from '@material-ui/icons/Email';
+import {Flex, Heading, Link, Stack, Text, Button, LinkOverlay, Divider} from "@chakra-ui/react";
+import { EmailIcon } from "@chakra-ui/icons";
+import { MOMENTUM_SIGNATURE_GREEN} from "../../constants/colors";
 
 
 export default function Contact(){
-  return(
-    <React.Fragment>
-    {/* to have "contact us" in the center
-      <Grid container>
-          <Grid item xs={12} style={{display: 'flex', justifyContent: 'center', paddingTop:'1.5em'}}>
-            <Typography component="h1" variant="h2" style={{ marginBottom: '-0.25em' }}>
-            <b>Contact Us</b>
-            </Typography>
-          </Grid>
-      </Grid>
-      */}
-      <Grid container style={{marginTop: '5em', display: 'flex', justifyContent: 'center'}}>
-        <Grid item sm={5} style={{display: 'flex', flexDirection: 'column', padding: '0 4em'}}>
-          <Typography component="h1" variant="h2" style={{ marginBottom: '0.5em' }}>
-          <b>Contact Us</b>
-          </Typography>
-
-            <EmailIcon fontSize="large" style={{marginRight: '10px'}} color="primary"/>
-            <Typography variant="h6" color="primary"><i>contact@ourmomentum.org</i></Typography>
-
-            <Typography variant="subtitle1" style={{marginTop: "1em"}}>
+  return (
+      <Flex w={'100%'} justify={'center'}>
+        <Stack direction={'column'} aling={'center'} px={8} w={['100%', '90%', '80%', '65%', '50%']} spacing={8} py={8} textAlign={'center'} align={'center'}>
+          <Heading size={"3xl"} fontStyle={'bold'}>
+          Contact Us
+          </Heading>
+          <Divider />
+            <Stack direction={'row'} spacing={2} align={'center'} justify={'center'}>
+              <EmailIcon color={MOMENTUM_SIGNATURE_GREEN} />
+              <Link href={'mailto:contact@ourmomentum.org'} color={MOMENTUM_SIGNATURE_GREEN}><i>contact@ourmomentum.org</i></Link>
+            </Stack>
+            <Text>
               If you have any questions, comments or feedback, please let us know here! Someone from our team will respond as soon as possible!
-            </Typography>
+            </Text>
 
-            <Typography variant="subtitle2" style={{marginTop: "0.5em", marginBottom:"3em"}}>
-              <i>( PS – If you want to tell our team how good looking they are, that’s ok too :) )</i>
-            </Typography>
-
-            <Button style={{borderRadius: '10px', backgroundColor:"#c13584", color:"white", marginBottom:'1em'}} fullWidth>
-              <Typography variant="subtitle1">Instagram</Typography> <InstagramIcon  fontSize="default" style={{marginLeft: "5px"}}/>
-            </Button>
-
-            <Button style={{borderRadius: '10px', backgroundColor:"#1da1f2", color:"white", marginBottom:'1em'}} fullWidth>
-              <Typography variant="subtitle1">Twitter</Typography> <TwitterIcon  fontSize="default" style={{marginLeft: "5px"}}/>
-            </Button>
-
-            <Button style={{borderRadius: '10px', backgroundColor:"#2867b2", color:"white", marginBottom:'1em'}} fullWidth>
-              <Typography variant="subtitle1">LinkedIn</Typography> <LinkedInIcon  fontSize="default" style={{marginLeft: "5px"}}/>
-            </Button>
-          </Grid>
-        <Grid item xs />
-        <Grid xs={12} sm={5}>
-              <ContactForm />
-        </Grid>
-        <Grid item xs={1} />
-
-      </Grid>
-
-        </React.Fragment>
+            <Text fontStyle={'italic'} fontSize={'sm'}>
+              ( PS – If you want to tell our team how good looking they are, that’s ok too :) )
+            </Text>
+            <Stack direction={'column'} spacing={8} w={['100%', '90%', '75%']} align={'center'}>
+              <a href={'https://www.instagram.com/momentumagazine/?hl=en'} style={{width: '100%'}} target={'_blank'}>
+                <Button colorScheme={'pink'} color={'white'} w={'100%'} >
+                  <Typography variant="subtitle1">Instagram</Typography> <InstagramIcon  fontSize="default" style={{marginLeft: "5px"}}/>
+                </Button>
+              </a>
+              <a href={'https://twitter.com/ourmomentumag'} isExternal style={{width: '100%'}} target={'_blank'}>
+                <Button colorScheme={'twitter'} w={'100%'}>
+                  <Typography variant="subtitle1">Twitter</Typography> <TwitterIcon  fontSize="default" style={{marginLeft: "5px"}}/>
+                </Button>
+              </a>
+              <a href={'https://www.linkedin.com/company/momentummagazine/'} style={{width: '100%'}} target={'_blank'}>
+                <Button colorScheme={'linkedin'} w={'100%'}>
+                <Typography variant="subtitle1">LinkedIn</Typography> <LinkedInIcon  fontSize="default" style={{marginLeft: "5px"}}/>
+              </Button>
+              </a>
+            </Stack>
+        </Stack>
+      </Flex>
       )
 }

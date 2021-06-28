@@ -1,25 +1,20 @@
 import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
+import {Stack, Heading, Text, Flex, Divider} from '@chakra-ui/react';
 import { useTheme } from '@material-ui/core/styles';
 
 export default function EditorsNote() {
     const theme = useTheme();
 
     return (
-        <div>    
-            <Grid container>
-                <Grid item xs={12} style={{display: 'flex', justifyContent: 'center', paddingTop:'6em', paddingBottom:'0em'}}>
-                    <Typography variant='h4' style={{fontWeight:'bold', letterSpacing: '0.25em'}}>A NOTE FROM OUR EDITOR</Typography>
-                </Grid>
-            </Grid>
-
-            <Grid container>
-                <Grid item xs />    
-                <Grid item xs={6} style={{display: 'flex', justifyContent: 'left', paddingTop:'3em', paddingBottom:'0em'}}>
-                    <Typography variant='body1' style={{textAlign:'justify'}}>
+        <Flex w={'100%'} justify={'center'}>
+            <Stack direction={'column'} align={'center'} spacing={8} py={16} px={8}  w={['100%', '90%', '80%', '65%', '50%']}>
+                <Heading fontWeight={'bold'} letterSpacing={'4px'} textAlign={'center'}>A NOTE FROM OUR EDITOR</Heading>
+                <Divider />
+                    <Text textAlign={'justify'}>
                         Dear Reader,<br /><br />
                         <span style = {{color: '#51AF9D', fontWeight:'bold', float: 'left', fontSize: '3em', lineHeight: '1em', /*paddingTop: '4px', padding-right: '8px';*/  paddingRight: '0.15em'}}>W</span>
-                        <span style={{fontWeight:'bold', fontStyle:'italic'}}>hat does it mean to be human?</span> This perplexing philosophical vertigo never fails to leave us reeling. It is a question that entails no easy answer, yet one that I believe we must pursue through the art of storytelling. 
+                        <span style={{fontWeight:'bold', fontStyle:'italic'}}>hat does it mean to be human?</span> This perplexing philosophical vertigo never fails to leave us reeling. It is a question that entails no easy answer, yet one that I believe we must pursue through the art of storytelling.
                         <br /><br />
                         Humanity is shaped by how we communicate with each other; the tales we tell define us. I have always sought the examination of the humanities and arts (STEM is valid too) as a medium for sharing narratives that span centuries of human experience. In times of tumult – a global pandemic, social unrest, economic recession, and an insurmountable surge of uncertainty – I was driven to form a collective that harnesses such a passion for storytelling in all its myriad forms, engaging with unflinching honesty and passion for ideas we care about.
                         <br /><br />
@@ -38,10 +33,8 @@ export default function EditorsNote() {
                         Rissa Kei Chua
                         <br />
                         Founder and Editor – in – Chief
-                    </Typography>
-                </Grid>
-                <Grid item xs />
-            </Grid>
-        </div>
+                    </Text>
+            </Stack>
+        </Flex>
     )
 }

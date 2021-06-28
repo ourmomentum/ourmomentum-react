@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { BrowserRouter, Route } from 'react-router-dom';
+import {BrowserRouter, HashRouter, Route} from 'react-router-dom';
 import Landing from './components/home-screen/Landing';
 import { ThemeProvider } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles'
@@ -16,8 +16,6 @@ import UserContext from './utilities/UserContext';
 import MeetTheMomentum from './components/meet-the-momentum/MeetTheMomentum'
 import { makeAuthorizedRequest } from './utilities/MomentumRequestsOld';
 import User from './components/user/User';
-import Brightside from './components/blog/blog-pages.old/Brightside';
-import BlogPage from './components/blog/blog-page/BlogPage';
 import BlogPostContainer from './components/blog/blog-page/BlogPostContainer';
 import PostArticle from './components/post-article/PostArticle';
 import Blog from "./components/blog/Blog";
@@ -53,7 +51,7 @@ function App() {
   return (
       <ChakraProvider>
             <UserContext.Provider value={[userInfo, setUserInfo]}>
-              <BrowserRouter>
+              <HashRouter>
                   <ThemeProvider theme={theme}>
                   <Route path = '/' component={MomentumToolbar} />
                   <Route exact path = '/' component={Landing} />
@@ -69,7 +67,7 @@ function App() {
                   <Route path='/post-article' component={PostArticle}/>
                   <Route path = '/' component={Footer} />
                   </ThemeProvider>
-              </BrowserRouter>
+              </HashRouter>
             </UserContext.Provider>
       </ChakraProvider>
   );

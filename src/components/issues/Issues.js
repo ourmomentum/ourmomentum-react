@@ -1,14 +1,17 @@
 import React from 'react'
 import {Typography, Grid } from '@material-ui/core'
+import {Divider, Flex, Heading, Stack} from "@chakra-ui/react";
 
 export default function Issues(){
     return(
         <React.Fragment>
-            <Grid container>
-                <Grid item xs={12} style={{display: 'flex', justifyContent: 'center', paddingTop:'2em', paddingBottom:'0em'}}>
-                    <Typography variant='h3' style={{fontWeight:'bold', letterSpacing: '0.25em'}}>ISSUE ONE: EUREKA</Typography>
-                </Grid>
-            </Grid>
+            <Stack direction={'column'} align={'center'} p={16} spacing={8}>
+                <Stack direction={'column'}>
+                    <Heading size={'3xl'} textAlign={'center'} fontWeight={'bold'} letterSpacing={'0.25em'}>ISSUE ONE</Heading>
+                    <Divider />
+                </Stack>
+                    <Heading size={'3xl'} textAlign={'center'} fontWeight={'bold'} letterSpacing={'0.25em'}>EUREKA</Heading>
+            </Stack>
 
             <Grid container>   
                 <Grid item xs={12} style={{display: 'flex', justifyContent: 'center', paddingTop:'2em', paddingBottom:'0em'}}>

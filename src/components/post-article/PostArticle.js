@@ -5,6 +5,7 @@ import {Flex, Stack} from "@chakra-ui/react";
 import Cookies from 'universal-cookie'
 import {isLoggedIn} from "../../utilities/MomentumRequests";
 import {BACKEND_URL} from "../../constants/backend_info";
+import axios from "axios";
 
 function PostArticle(props) {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -17,8 +18,13 @@ function PostArticle(props) {
     }
 
     const onSuccess = (e) => {
-        cookies.set("googleToken", e.tokenId, {path: '/', httpOnly: process.env.NODE_ENV === 'production', domain: process.env.NODE_ENV === 'production' ? BACKEND_URL : ""});
-        verifyLoggedIn();
+        console.log(e);
+        axios.post(BACKEND_URL + "/api/temp/set-token", {googleToken: e.tokenId}).then(() => {
+            verifyLoggedIn();
+        }).catch(() => {
+            // Make Toast.
+        })
+
     }
 
     useEffect(() => {

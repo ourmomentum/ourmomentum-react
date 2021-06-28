@@ -43,10 +43,8 @@ export default function DesktopToolbar() {
                         <Grid item sm={10} md={6} lg={5} xl={4} style={{display: "flex", justifyContent: "space-between"}}>
                                 <Link to="/blog"><Typography variant="button">Blog</Typography></Link>
                                     
-                                <Link to="/read-momentum"><Typography variant="button">Read Momentum</Typography></Link>      
-                                    
-                                <Link to="/our-story"><Typography variant="button">Our Story</Typography></Link>
-                                
+                                <Link to="/read-momentum"><Typography variant="button">Read Momentum</Typography></Link>
+
                                 <Link to="/contact"><Typography variant="button">Contact</Typography></Link>     
                                 {
                                     (userInfo.loggedIn && userInfo.user) ?

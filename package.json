@@ -25,6 +25,10 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "react-simplemde-editor": "^5.0.1",
+    "react-slick": "^0.28.1",
+    "sass": "^1.35.1",
+    "slick-carousel": "^1.8.1",
+    "source-map-explorer": "^2.5.2",
     "universal-cookie": "^4.0.4"
   },
   "scripts": {

@@ -1,5 +1,6 @@
 import React from 'react'
 import {Typography, Grid } from '@material-ui/core'
+import {Stack, Heading, Text, Divider, Flex} from '@chakra-ui/react';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -7,21 +8,13 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 export default function Policies(){
     return(
-        <React.Fragment>
-            <Grid container>
-                <Grid item xs={12} style={{display: 'flex', justifyContent: 'center', paddingTop:'2em', paddingBottom:'0em'}}>
-                    <Typography variant='h3' style={{fontWeight:'bold', letterSpacing: '0.25em'}}>OUR POLICIES</Typography>
-                </Grid>
-            </Grid>
+        <Flex w={'100%'} justify={'center'}>
+        <Stack direction={'column'} aling={'center'} px={8} w={['100%', '90%', '80%', '65%', '50%']} spacing={8} py={8}>
+            <Heading size={'3xl'} textAlign={'center'} style={{fontWeight:'bold', letterSpacing: '0.25em'}}>OUR POLICIES</Heading>
+            <Divider />
             
-            <Grid container style={{display: 'flex', justifyContent: 'center'}}>
-                <Grid item xs={8} style={{display: 'flex', justifyContent: 'left', textAlign:'justify', paddingTop:'2em', paddingBottom:'0em'}}>
-                    <Typography variant='body1' style={{}}>Momentum is an organization that holds itself to high standards, not only in the quality of content that we produce, but as well as the ethical and moral consequences of our artistic, technological, and organizational decisions. Each section below outlines some of the policies that we hold ourselves to.</Typography>
-                </Grid>
-            </Grid>
-            
-            <Grid container style={{display: 'flex', justifyContent: 'center', paddingTop:'2em', paddingBottom:'0em'}}>
-                <Grid item xs={8} style={{display: 'flex', justifyContent: 'center', paddingBottom:'0em'}}>
+            <Text> Momentum is an organization that holds itself to high standards, not only in the quality of content that we produce, but as well as the ethical and moral consequences of our artistic, technological, and organizational decisions. Each section below outlines some of the policies that we hold ourselves to.</Text>
+
                     <ExpansionPanel style={{border: '1px solid rgba(0, 0, 0, .125)', borderBottom:'none'}}>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                             <Typography variant='h5' style={{fontWeight:'bold'}}>GDPR Compliance</Typography>
@@ -63,8 +56,6 @@ export default function Policies(){
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
-                </Grid>
-                <Grid item xs={8} style={{display: 'flex', justifyContent: 'center', paddingTop:'1em'}}>
                     <ExpansionPanel style={{border: '1px solid rgba(0, 0, 0, .125)', borderBottom:'none'}}>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                             <Typography variant='h5' style={{fontWeight:'bold'}}>Momentum Member Agreement</Typography>
@@ -114,8 +105,6 @@ export default function Policies(){
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
-                </Grid>
-                <Grid item xs={8} style={{display: 'flex', justifyContent: 'center', paddingTop:'1em'}}>
                     <ExpansionPanel style={{border: '1px solid rgba(0, 0, 0, .125)', borderBottom:'none'}}>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                             <Typography variant='h5' style={{fontWeight:'bold'}}>Advertising Policy</Typography>
@@ -141,9 +130,8 @@ export default function Policies(){
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
-                </Grid>
-            </Grid>
-        </React.Fragment>
+        </Stack>
+        </Flex>
       )
 
 }   

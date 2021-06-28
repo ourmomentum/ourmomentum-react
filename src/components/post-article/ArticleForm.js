@@ -106,7 +106,7 @@ export default function ArticleForm(props) {
 
     const logOut = () => {
         const cookies = new Cookies();
-        cookies.set("googleToken", "", {path: '/', httpOnly: process.env.NODE_ENV === 'production', domain: process.env.NODE_ENV === 'production' ? BACKEND_URL : ""});
+        cookies.set("googleToken", "", {path: '/', httpOnly: true, domain: BACKEND_URL});
         props.onLogOut();
 
     }
@@ -129,8 +129,8 @@ export default function ArticleForm(props) {
         <React.Fragment>
             <Stack w={'100%'} direction={'column'} align={'center'}>
                 <Stack w={'100%'} spacing={8} align={'center'} borderWidth={'1px'} borderColor={'#A0AEC0'} p={8} borderRadius={8} spacing={8} >
-                    <Heading variant='h2' pb={8}>Create Blog Post</Heading>
-                    <Input placeholder="Title" textAlign={'center'} fontSize={'2em'} w='50%' variant='flushed' name='title' onChange={onInputFieldChange}/>
+                    <Heading size={'2xl'} pb={8}>Create Blog Post</Heading>
+                    <Input placeholder="Title" textAlign={'center'} fontWeight={'bold'} fontSize={'2em'} minW='50%' variant='flushed' name='title' onChange={onInputFieldChange}/>
                     <Box w={'100%'}>
                         <SimpleMdeReact onChange={onMdeChange} options={editorOptions} />
                     </Box>
